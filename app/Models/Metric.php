@@ -68,15 +68,15 @@ class Metric extends Model implements HasPresenter
      * @var string[]
      */
     protected $attributes = [
-        'name'          => '',
+        'name' => '',
         'display_chart' => 1,
         'default_value' => 0,
-        'calc_type'     => 0,
-        'places'        => 2,
-        'default_view'  => 1,
-        'threshold'     => 5,
-        'order'         => 0,
-        'visible'       => 1,
+        'calc_type' => 0,
+        'places' => 2,
+        'default_view' => 1,
+        'threshold' => 5,
+        'order' => 0,
+        'visible' => 1,
     ];
 
     /**
@@ -85,15 +85,15 @@ class Metric extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'name'          => 'string',
+        'name' => 'string',
         'display_chart' => 'bool',
         'default_value' => 'int',
-        'calc_type'     => 'int',
-        'places'        => 'int',
-        'default_view'  => 'int',
-        'threshold'     => 'int',
-        'order'         => 'int',
-        'visible'       => 'int',
+        'calc_type' => 'int',
+        'places' => 'int',
+        'default_view' => 'int',
+        'threshold' => 'int',
+        'order' => 'int',
+        'visible' => 'int',
     ];
 
     /**
@@ -121,13 +121,13 @@ class Metric extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'          => 'required',
-        'suffix'        => 'required',
+        'name' => 'required',
+        'suffix' => 'required',
         'display_chart' => 'required|bool',
         'default_value' => 'required|numeric',
-        'places'        => 'required|numeric|between:0,4',
-        'default_view'  => 'required|numeric|between:0,3',
-        'visible'       => 'required|numeric|between:0,2',
+        'places' => 'required|numeric|between:0,4',
+        'default_view' => 'required|numeric|between:0,3',
+        'visible' => 'required|numeric|between:0,2',
     ];
 
     /**

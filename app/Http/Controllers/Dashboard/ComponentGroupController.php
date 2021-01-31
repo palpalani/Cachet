@@ -44,22 +44,22 @@ class ComponentGroupController extends Controller
     {
         $this->subMenu = [
             'components' => [
-                'title'  => trans('dashboard.components.components'),
-                'url'    => cachet_route('dashboard.components'),
-                'icon'   => 'ion-ios-browsers',
+                'title' => trans('dashboard.components.components'),
+                'url' => cachet_route('dashboard.components'),
+                'icon' => 'ion-ios-browsers',
                 'active' => false,
             ],
             'groups' => [
-                'title'  => trans_choice('dashboard.components.groups.groups', 2),
-                'url'    => cachet_route('dashboard.components.groups'),
-                'icon'   => 'ion-folder',
+                'title' => trans_choice('dashboard.components.groups.groups', 2),
+                'url' => cachet_route('dashboard.components.groups'),
+                'icon' => 'ion-folder',
                 'active' => false,
             ],
         ];
 
         View::share([
-            'sub_menu'  => $this->subMenu,
-            'subTitle'  => trans_choice('dashboard.components.components', 2),
+            'sub_menu' => $this->subMenu,
+            'subTitle' => trans_choice('dashboard.components.components', 2),
         ]);
     }
 

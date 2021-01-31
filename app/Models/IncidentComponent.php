@@ -29,9 +29,9 @@ class IncidentComponent extends Model
      * @var string[]
      */
     protected $casts = [
-        'incident_id'  => 'int',
+        'incident_id' => 'int',
         'component_id' => 'int',
-        'status_id'    => 'int',
+        'status_id' => 'int',
     ];
 
     /**
@@ -51,9 +51,9 @@ class IncidentComponent extends Model
      * @var string[]
      */
     public $rules = [
-        'incident_id'  => 'required|int',
+        'incident_id' => 'required|int',
         'component_id' => 'required|int',
-        'status_id'    => 'required|int',
+        'status_id' => 'required|int',
     ];
 
     /**

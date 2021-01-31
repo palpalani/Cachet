@@ -57,7 +57,7 @@ class Schedule extends Model implements HasPresenter
      * @var string[]
      */
     protected $attributes = [
-        'status'       => self::UPCOMING,
+        'status' => self::UPCOMING,
         'completed_at' => null,
     ];
 
@@ -67,9 +67,9 @@ class Schedule extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'name'         => 'string',
-        'message'      => 'string',
-        'status'       => 'int',
+        'name' => 'string',
+        'message' => 'string',
+        'status' => 'int',
         'scheduled_at' => 'datetime',
         'completed_at' => 'datetime',
     ];
@@ -95,9 +95,9 @@ class Schedule extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'         => 'required|string',
-        'message'      => 'nullable|string',
-        'status'       => 'required|int|between:0,2',
+        'name' => 'required|string',
+        'message' => 'nullable|string',
+        'status' => 'required|int|between:0,2',
     ];
 
     /**

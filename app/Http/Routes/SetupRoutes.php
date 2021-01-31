@@ -39,10 +39,10 @@ class SetupRoutes
     {
         $router->group([
             'middleware' => ['setup'],
-            'prefix'     => 'setup',
+            'prefix' => 'setup',
         ], function (Registrar $router) {
             $router->get('/', [
-                'as'   => 'get:setup',
+                'as' => 'get:setup',
                 'uses' => 'SetupController@getIndex',
             ]);
         });

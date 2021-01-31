@@ -40,32 +40,32 @@ class SubscribeRoutes
             'middleware' => ['ready', 'localize', 'subscribers'],
         ], function (Registrar $router) {
             $router->get('subscribe', [
-                'as'   => 'get:subscribe',
+                'as' => 'get:subscribe',
                 'uses' => 'SubscribeController@showSubscribe',
             ]);
             $router->post('subscribe', [
-                'as'   => 'post:subscribe',
+                'as' => 'post:subscribe',
                 'uses' => 'SubscribeController@postSubscribe',
             ]);
 
             $router->get('subscribe/manage/{code}', [
-                'as'         => 'get:subscribe.manage',
+                'as' => 'get:subscribe.manage',
                 'middleware' => ['signed'],
-                'uses'       => 'SubscribeController@showManage',
+                'uses' => 'SubscribeController@showManage',
             ]);
             $router->post('subscribe/manage/{code}', [
-                'as'   => 'post:subscribe.manage',
+                'as' => 'post:subscribe.manage',
                 'uses' => 'SubscribeController@postManage',
             ]);
 
             $router->get('subscribe/verify/{code}', [
-                'as'         => 'get:subscribe.verify',
+                'as' => 'get:subscribe.verify',
                 'middleware' => ['signed'],
-                'uses'       => 'SubscribeController@getVerify',
+                'uses' => 'SubscribeController@getVerify',
             ]);
 
             $router->get('unsubscribe/{code}/{subscription?}', [
-                'as'   => 'get:subscribe.unsubscribe',
+                'as' => 'get:subscribe.unsubscribe',
                 'uses' => 'SubscribeController@getUnsubscribe',
             ]);
         });

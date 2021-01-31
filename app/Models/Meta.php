@@ -29,10 +29,10 @@ class Meta extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'        => 'int',
-        'key'       => 'string',
-        'value'     => 'json',
-        'meta_id'   => 'int',
+        'id' => 'int',
+        'key' => 'string',
+        'value' => 'json',
+        'meta_id' => 'int',
         'meta_type' => 'string',
     ];
 
@@ -54,10 +54,10 @@ class Meta extends Model
      * @var string[]
      */
     public $rules = [
-        'id'        => 'nullable|int|min:1',
-        'key'       => 'required|string',
-        'value'     => 'nullable',
-        'meta_id'   => 'required|int',
+        'id' => 'nullable|int|min:1',
+        'key' => 'required|string',
+        'value' => 'nullable',
+        'meta_id' => 'required|int',
         'meta_type' => 'required|string',
     ];
 

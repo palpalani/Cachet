@@ -51,7 +51,7 @@ class SendBeaconJobHandler
     public function handle(SendBeaconJob $job)
     {
         // Don't send anything if the installation explicitly prevents us.
-        if (!$this->beacon->enabled()) {
+        if (! $this->beacon->enabled()) {
             return;
         }
 

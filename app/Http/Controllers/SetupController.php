@@ -39,12 +39,12 @@ class SetupController extends Controller
      * @var string[]
      */
     protected $cacheDrivers = [
-        'apc'       => 'APC(u)',
-        'array'     => 'Array',
-        'file'      => 'File',
-        'database'  => 'Database',
+        'apc' => 'APC(u)',
+        'array' => 'Array',
+        'file' => 'File',
+        'database' => 'Database',
         'memcached' => 'Memcached',
-        'redis'     => 'Redis',
+        'redis' => 'Redis',
     ];
 
     /**
@@ -53,14 +53,14 @@ class SetupController extends Controller
      * @var string[]
      */
     protected $mailDrivers = [
-        'smtp'      => 'SMTP',
-        'mail'      => 'Mail',
-        'sendmail'  => 'Sendmail',
-        'mailgun'   => 'Mailgun',
-        'mandrill'  => 'Mandrill',
-        'ses'       => 'Amazon SES',
+        'smtp' => 'SMTP',
+        'mail' => 'Mail',
+        'sendmail' => 'Sendmail',
+        'mailgun' => 'Mailgun',
+        'mandrill' => 'Mandrill',
+        'ses' => 'Amazon SES',
         'sparkpost' => 'SparkPost',
-        'log'       => 'Log (Testing)',
+        'log' => 'Log (Testing)',
     ];
 
     /**
@@ -69,12 +69,12 @@ class SetupController extends Controller
      * @var string[]
      */
     protected $queueDrivers = [
-        'null'       => 'None',
-        'sync'       => 'Synchronous',
-        'database'   => 'Database',
+        'null' => 'None',
+        'sync' => 'Synchronous',
+        'database' => 'Database',
         'beanstalkd' => 'Beanstalk',
-        'sqs'        => 'Amazon SQS',
-        'redis'      => 'Redis',
+        'sqs' => 'Amazon SQS',
+        'redis' => 'Redis',
     ];
 
     /**
@@ -106,23 +106,23 @@ class SetupController extends Controller
     public function __construct()
     {
         $this->rulesStep1 = [
-            'env.cache_driver'   => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
+            'env.cache_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
             'env.session_driver' => 'required|in:'.implode(',', array_keys($this->cacheDrivers)),
-            'env.queue_driver'   => 'required|in:'.implode(',', array_keys($this->queueDrivers)),
-            'env.mail_driver'    => 'required|in:'.implode(',', array_keys($this->mailDrivers)),
+            'env.queue_driver' => 'required|in:'.implode(',', array_keys($this->queueDrivers)),
+            'env.mail_driver' => 'required|in:'.implode(',', array_keys($this->mailDrivers)),
         ];
 
         $this->rulesStep2 = [
-            'settings.app_name'     => 'required',
-            'settings.app_domain'   => 'required',
+            'settings.app_name' => 'required',
+            'settings.app_domain' => 'required',
             'settings.app_timezone' => 'required',
-            'settings.app_locale'   => 'required',
+            'settings.app_locale' => 'required',
             'settings.show_support' => 'bool',
         ];
 
         $this->rulesStep3 = [
             'user.username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-            'user.email'    => 'email|required',
+            'user.email' => 'email|required',
             'user.password' => 'required',
         ];
     }
@@ -143,6 +143,7 @@ class SetupController extends Controller
 
             if (isset($langs[$language])) {
                 $userLanguage = $language;
+
                 break;
             }
         }
@@ -163,9 +164,9 @@ class SetupController extends Controller
         ];
 
         $mailConfig = [
-            'driver'   => Config::get('mail.driver'),
-            'host'     => Config::get('mail.host'),
-            'from'     => Config::get('mail.from'),
+            'driver' => Config::get('mail.driver'),
+            'host' => Config::get('mail.host'),
+            'from' => Config::get('mail.from'),
             'username' => Config::get('mail.username'),
             'password' => Config::get('mail.password'),
         ];
@@ -199,11 +200,11 @@ class SetupController extends Controller
         });
 
         $v->sometimes(['env.mail_address', 'env.mail_password'], 'required', function ($input) {
-            return !in_array($input->env['mail_driver'], ['log', 'smtp']);
+            return ! in_array($input->env['mail_driver'], ['log', 'smtp']);
         });
 
         $v->sometimes(['env.mail_username'], 'required', function ($input) {
-            return !in_array($input->env['mail_driver'], ['sendmail', 'log']);
+            return ! in_array($input->env['mail_driver'], ['sendmail', 'log']);
         });
 
         if ($v->passes()) {
@@ -248,9 +249,9 @@ class SetupController extends Controller
 
             $user = User::create([
                 'username' => $userDetails['username'],
-                'email'    => $userDetails['email'],
+                'email' => $userDetails['email'],
                 'password' => $userDetails['password'],
-                'level'    => User::LEVEL_ADMIN,
+                'level' => User::LEVEL_ADMIN,
             ]);
 
             Auth::login($user);

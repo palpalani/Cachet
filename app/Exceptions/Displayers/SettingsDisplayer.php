@@ -73,7 +73,7 @@ class SettingsDisplayer implements DisplayerInterface
      */
     public function canDisplay(Exception $original, Exception $transformed, int $code)
     {
-        return ($transformed instanceof ReadException) && !$this->request->is('setup*');
+        return ($transformed instanceof ReadException) && ! $this->request->is('setup*');
     }
 
     /**

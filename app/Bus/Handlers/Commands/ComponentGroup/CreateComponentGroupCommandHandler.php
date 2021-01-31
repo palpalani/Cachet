@@ -47,10 +47,10 @@ class CreateComponentGroupCommandHandler
     public function handle(CreateComponentGroupCommand $command)
     {
         $group = ComponentGroup::create([
-            'name'      => $command->name,
-            'order'     => $command->order,
+            'name' => $command->name,
+            'order' => $command->order,
             'collapsed' => $command->collapsed,
-            'visible'   => $command->visible,
+            'visible' => $command->visible,
         ]);
 
         event(new ComponentGroupWasCreatedEvent($this->auth->user(), $group));

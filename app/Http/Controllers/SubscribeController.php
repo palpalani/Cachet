@@ -117,11 +117,11 @@ class SubscribeController extends Controller
 
         $subscriber = Subscriber::where('verify_code', '=', $code)->first();
 
-        if (!$subscriber) {
+        if (! $subscriber) {
             throw new BadRequestHttpException();
         }
 
-        if (!$subscriber->is_verified) {
+        if (! $subscriber->is_verified) {
             execute(new VerifySubscriberCommand($subscriber));
         }
 
@@ -145,7 +145,7 @@ class SubscribeController extends Controller
 
         $subscriber = Subscriber::where('verify_code', '=', $code)->first();
 
-        if (!$subscriber || !$subscriber->is_verified) {
+        if (! $subscriber || ! $subscriber->is_verified) {
             throw new BadRequestHttpException();
         }
 
@@ -179,7 +179,7 @@ class SubscribeController extends Controller
         $componentGroups = ComponentGroup::whereIn('id', $usedComponentGroups)->orderBy('order')->get();
         $ungroupedComponents = Component::enabled()->authenticated($includePrivate)->where('group_id', '=', 0)->orderBy('order')->orderBy('created_at')->get();
 
-        if (!$subscriber) {
+        if (! $subscriber) {
             throw new BadRequestHttpException();
         }
 
@@ -205,7 +205,7 @@ class SubscribeController extends Controller
 
         $subscriber = Subscriber::where('verify_code', '=', $code)->first();
 
-        if (!$subscriber) {
+        if (! $subscriber) {
             throw new BadRequestHttpException();
         }
 

@@ -77,13 +77,13 @@ class MetricsComposer
      */
     protected function getVisibleMetrics($displayMetrics)
     {
-        if (!$displayMetrics) {
+        if (! $displayMetrics) {
             return;
         }
 
         $metrics = Metric::displayable();
 
-        if (!$this->guard->check()) {
+        if (! $this->guard->check()) {
             $metrics->visible();
         }
 

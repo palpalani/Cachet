@@ -39,12 +39,12 @@ class Subscriber extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'email'             => 'string',
-        'phone_number'      => 'string',
+        'email' => 'string',
+        'phone_number' => 'string',
         'slack_webhook_url' => 'string',
-        'verify_code'       => 'string',
-        'verified_at'       => 'date',
-        'global'            => 'bool',
+        'verify_code' => 'string',
+        'verified_at' => 'date',
+        'global' => 'bool',
     ];
 
     /**
@@ -66,8 +66,8 @@ class Subscriber extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'email'             => 'nullable|email',
-        'phone_number'      => 'nullable|string',
+        'email' => 'nullable|email',
+        'phone_number' => 'nullable|string',
         'slack_webhook_url' => 'nullable|url',
     ];
 
@@ -88,7 +88,7 @@ class Subscriber extends Model implements HasPresenter
         parent::boot();
 
         self::creating(function ($user) {
-            if (!$user->verify_code) {
+            if (! $user->verify_code) {
                 $user->verify_code = self::generateVerifyCode();
             }
         });

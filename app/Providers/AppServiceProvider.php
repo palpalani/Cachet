@@ -52,11 +52,11 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::morphMap([
             'components' => \CachetHQ\Cachet\Models\Component::class,
-            'incidents'  => \CachetHQ\Cachet\Models\Incident::class,
-            'metrics'    => \CachetHQ\Cachet\Models\Metric::class,
-            'schedules'  => \CachetHQ\Cachet\Models\Schedule::class,
+            'incidents' => \CachetHQ\Cachet\Models\Incident::class,
+            'metrics' => \CachetHQ\Cachet\Models\Metric::class,
+            'schedules' => \CachetHQ\Cachet\Models\Schedule::class,
             'subscriber' => \CachetHQ\Cachet\Models\Subscriber::class,
-            'tags'       => \CachetHQ\Cachet\Models\Tag::class,
+            'tags' => \CachetHQ\Cachet\Models\Tag::class,
         ]);
     }
 

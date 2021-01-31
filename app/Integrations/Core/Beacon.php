@@ -78,13 +78,13 @@ class Beacon implements BeaconContract
     public function send()
     {
         // We don't want any accidental sending of beacons if the installation has explicitly said no.
-        if (!$this->enabled()) {
+        if (! $this->enabled()) {
             return;
         }
 
         $setting = app(Setting::class);
 
-        if (!$installId = $setting->get('install_id', null)) {
+        if (! $installId = $setting->get('install_id', null)) {
             $installId = sha1(Str::random(20));
 
             $setting->set('install_id', $installId);
@@ -92,17 +92,17 @@ class Beacon implements BeaconContract
 
         $payload = [
             'install_id' => $installId,
-            'version'    => CACHET_VERSION,
-            'docker'     => $this->config->get('cachet.is_docker'),
-            'database'   => $this->config->get('database.default'),
-            'data'       => [
+            'version' => CACHET_VERSION,
+            'docker' => $this->config->get('cachet.is_docker'),
+            'database' => $this->config->get('database.default'),
+            'data' => [
                 'components' => Component::all()->count(),
-                'incidents'  => Incident::all()->count(),
-                'metrics'    => Metric::all()->count(),
-                'users'      => User::all()->count(),
-                'actions'    => Action::all()->count(),
-                'tags'       => Tag::all()->count(),
-                'schedules'  => Schedule::all()->count(),
+                'incidents' => Incident::all()->count(),
+                'metrics' => Metric::all()->count(),
+                'users' => User::all()->count(),
+                'actions' => Action::all()->count(),
+                'tags' => Tag::all()->count(),
+                'schedules' => Schedule::all()->count(),
             ],
         ];
 
@@ -110,7 +110,7 @@ class Beacon implements BeaconContract
             $client = new Client();
             $client->post(self::URL, [
                 'headers' => ['Accept' => 'application/json', 'User-Agent' => defined('CACHET_VERSION') ? 'cachet/'.constant('CACHET_VERSION') : 'cachet'],
-                'json'    => $payload,
+                'json' => $payload,
             ]);
         } catch (Exception $e) {
             event(new BeaconFailedToSendEvent());

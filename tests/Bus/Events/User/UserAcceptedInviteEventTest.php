@@ -30,7 +30,7 @@ class UserAcceptedInviteEventTest extends AbstractUserEventTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'user'   => new User(),
+            'user' => new User(),
             'invite' => new Invite(),
         ];
         $object = new UserAcceptedInviteEvent($params['user'], $params['invite']);

@@ -83,7 +83,7 @@ class Credits implements CreditsContract
      */
     public function latest()
     {
-        if (!$this->enabled) {
+        if (! $this->enabled) {
             return null;
         }
 

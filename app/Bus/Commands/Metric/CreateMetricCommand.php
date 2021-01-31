@@ -102,17 +102,17 @@ final class CreateMetricCommand
      * @var string[]
      */
     public $rules = [
-        'name'          => 'required|string',
-        'suffix'        => 'required|string',
-        'description'   => 'nullable|string',
+        'name' => 'required|string',
+        'suffix' => 'required|string',
+        'description' => 'nullable|string',
         'default_value' => 'required|int',
-        'calc_type'     => 'required|int',
+        'calc_type' => 'required|int',
         'display_chart' => 'nullable|int',
-        'places'        => 'nullable|int|between:0,4',
-        'default_view'  => 'required|int|between:0,3',
-        'threshold'     => 'required|int',
-        'order'         => 'nullable|int',
-        'visible'       => 'required|int|between:0,2',
+        'places' => 'nullable|int|between:0,4',
+        'default_view' => 'required|int|between:0,3',
+        'threshold' => 'required|int',
+        'order' => 'nullable|int',
+        'visible' => 'required|int|between:0,2',
     ];
 
     /**

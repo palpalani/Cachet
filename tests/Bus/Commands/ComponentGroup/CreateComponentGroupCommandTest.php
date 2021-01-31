@@ -30,10 +30,10 @@ class CreateComponentGroupCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'      => 'Test',
-            'order'     => 0,
+            'name' => 'Test',
+            'order' => 0,
             'collapsed' => 1,
-            'visible'   => ComponentGroup::VISIBLE_AUTHENTICATED,
+            'visible' => ComponentGroup::VISIBLE_AUTHENTICATED,
         ];
 
         $object = new CreateComponentGroupCommand(

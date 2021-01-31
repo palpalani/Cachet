@@ -44,7 +44,7 @@ class MetricPoint extends Model implements HasPresenter
      * @var string[]
      */
     protected $attributes = [
-        'value'   => 0,
+        'value' => 0,
         'counter' => 1,
     ];
 
@@ -55,8 +55,8 @@ class MetricPoint extends Model implements HasPresenter
      */
     protected $casts = [
         'metric_id' => 'int',
-        'value'     => 'float',
-        'counter'   => 'int',
+        'value' => 'float',
+        'counter' => 'int',
     ];
 
     /**
@@ -109,11 +109,11 @@ class MetricPoint extends Model implements HasPresenter
      */
     public function setCreatedAtAttribute($createdAt)
     {
-        if (!$createdAt) {
+        if (! $createdAt) {
             return;
         }
 
-        if (!$createdAt instanceof DateTime) {
+        if (! $createdAt instanceof DateTime) {
             $createdAt = Carbon::parse($createdAt);
         }
 

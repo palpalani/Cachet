@@ -68,8 +68,8 @@ class MetricPresenter extends BasePresenter implements Arrayable, Jsonable
     public function toArray()
     {
         return array_merge($this->wrappedObject->toArray(), [
-            'created_at'        => $this->created_at(),
-            'updated_at'        => $this->updated_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
             'default_view_name' => $this->default_view_name(),
         ]);
     }

@@ -28,7 +28,7 @@ trait StoresMeta
     public function storeMeta($metaData, $metaType, $metaId, $metaModel = Meta::class)
     {
         // Validation required instead of type hinting because it could be passed as false or NULL
-        if (!is_array($metaData)) {
+        if (! is_array($metaData)) {
             return;
         }
 
@@ -36,16 +36,17 @@ trait StoresMeta
             $modelInstance = call_user_func(
                 [$metaModel, 'firstOrNew'],
                 [
-                    'key'       => $key,
+                    'key' => $key,
                     'meta_type' => $metaType,
-                    'meta_id'   => $metaId,
+                    'meta_id' => $metaId,
                 ]
             );
 
             $value = $this->removeEmptyValues($value);
-            if (!empty($value)) {
+            if (! empty($value)) {
                 $modelInstance->setAttribute('value', $value);
                 $modelInstance->save();
+
                 continue;
             }
 
@@ -65,12 +66,12 @@ trait StoresMeta
      */
     protected function removeEmptyValues($values)
     {
-        if (!is_array($values)) {
+        if (! is_array($values)) {
             return empty($values) ? null : $values;
         }
 
         foreach ($values as $key => $value) {
-            if (!empty($value)) {
+            if (! empty($value)) {
                 continue;
             }
             unset($values[$key]);

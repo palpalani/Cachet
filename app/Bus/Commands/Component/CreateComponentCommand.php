@@ -87,15 +87,15 @@ final class CreateComponentCommand
      * @var string[]
      */
     public $rules = [
-        'name'        => 'required|string',
+        'name' => 'required|string',
         'description' => 'nullable|string',
-        'status'      => 'required|int|min:0|max:4',
-        'link'        => 'nullable|url',
-        'order'       => 'nullable|int',
-        'group_id'    => 'nullable|int',
-        'enabled'     => 'nullable|bool',
-        'meta'        => 'nullable|array',
-        'tags'        => 'nullable|string',
+        'status' => 'required|int|min:0|max:4',
+        'link' => 'nullable|url',
+        'order' => 'nullable|int',
+        'group_id' => 'nullable|int',
+        'enabled' => 'nullable|bool',
+        'meta' => 'nullable|array',
+        'tags' => 'nullable|string',
     ];
 
     /**

@@ -39,60 +39,60 @@ class SettingRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
-            'prefix'     => 'dashboard/settings',
+            'namespace' => 'Dashboard',
+            'prefix' => 'dashboard/settings',
         ], function (Registrar $router) {
             $router->get('setup', [
-                'as'   => 'get:dashboard.settings.setup',
+                'as' => 'get:dashboard.settings.setup',
                 'uses' => 'SettingsController@showSetupView',
             ]);
             $router->get('analytics', [
-                'as'   => 'get:dashboard.settings.analytics',
+                'as' => 'get:dashboard.settings.analytics',
                 'uses' => 'SettingsController@showAnalyticsView',
             ]);
             $router->get('localization', [
-                'as'   => 'get:dashboard.settings.localization',
+                'as' => 'get:dashboard.settings.localization',
                 'uses' => 'SettingsController@showLocalizationView',
             ]);
             $router->get('security', [
-                'as'   => 'get:dashboard.settings.security',
+                'as' => 'get:dashboard.settings.security',
                 'uses' => 'SettingsController@showSecurityView',
             ]);
             $router->get('theme', [
-                'as'   => 'get:dashboard.settings.theme',
+                'as' => 'get:dashboard.settings.theme',
                 'uses' => 'SettingsController@showThemeView',
             ]);
             $router->get('stylesheet', [
-                'as'   => 'get:dashboard.settings.stylesheet',
+                'as' => 'get:dashboard.settings.stylesheet',
                 'uses' => 'SettingsController@showStylesheetView',
             ]);
             $router->get('customization', [
-                'as'   => 'get:dashboard.settings.customization',
+                'as' => 'get:dashboard.settings.customization',
                 'uses' => 'SettingsController@showCustomizationView',
             ]);
             $router->get('credits', [
-                'as'   => 'get:dashboard.settings.credits',
+                'as' => 'get:dashboard.settings.credits',
                 'uses' => 'SettingsController@showCreditsView',
             ]);
             $router->get('log', [
-                'as'   => 'get:dashboard.settings.log',
+                'as' => 'get:dashboard.settings.log',
                 'uses' => 'SettingsController@showLogView',
             ]);
             $router->get('mail', [
-                'as'   => 'get:dashboard.settings.mail',
+                'as' => 'get:dashboard.settings.mail',
                 'uses' => 'SettingsController@showMailView',
             ]);
             $router->post('mail', [
-                'as'   => 'post:dashboard.settings.mail',
+                'as' => 'post:dashboard.settings.mail',
                 'uses' => 'SettingsController@postMail',
             ]);
             $router->post('mail/test', [
-                'as'   => 'post:dashboard.settings.mail.test',
+                'as' => 'post:dashboard.settings.mail.test',
                 'uses' => 'SettingsController@testMail',
             ]);
 
             $router->post('/', [
-                'as'   => 'post:dashboard.settings',
+                'as' => 'post:dashboard.settings',
                 'uses' => 'SettingsController@postSettings',
             ]);
         });

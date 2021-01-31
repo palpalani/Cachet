@@ -72,7 +72,7 @@ final class IncidentWasCreatedEvent implements ActionInterface, IncidentEventInt
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

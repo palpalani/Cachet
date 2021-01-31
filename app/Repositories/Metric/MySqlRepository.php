@@ -40,7 +40,7 @@ class MySqlRepository extends AbstractMetricRepository implements MetricInterfac
             "AND {$this->getMetricPointsTable()}.`created_at` <= NOW() ".
             "GROUP BY HOUR({$this->getMetricPointsTable()}.`created_at`), MINUTE({$this->getMetricPointsTable()}.`created_at`) ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
                 'metricId' => $metric->id,
-                'minutes'  => $minutes,
+                'minutes' => $minutes,
             ]);
 
         return $this->mapResults($metric, $points);
@@ -65,7 +65,7 @@ class MySqlRepository extends AbstractMetricRepository implements MetricInterfac
             "GROUP BY HOUR({$this->getMetricPointsTable()}.`created_at`) ".
             "ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
                 'metricId' => $metric->id,
-                'hour'     => $hour,
+                'hour' => $hour,
             ]);
 
         return $this->mapResults($metric, $points);
@@ -89,7 +89,7 @@ class MySqlRepository extends AbstractMetricRepository implements MetricInterfac
             "AND {$this->getMetricPointsTable()}.`created_at` <= NOW() ".
             "GROUP BY DATE({$this->getMetricPointsTable()}.`created_at`) ORDER BY {$this->getMetricPointsTable()}.`created_at`", [
                 'metricId' => $metric->id,
-                'day'      => $day,
+                'day' => $day,
             ]);
 
         return $this->mapResults($metric, $points);

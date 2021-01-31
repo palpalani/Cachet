@@ -50,9 +50,9 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string
      */
     protected $attributes = [
-        'order'     => 0,
+        'order' => 0,
         'collapsed' => 0,
-        'visible'   => 0,
+        'visible' => 0,
     ];
 
     /**
@@ -61,10 +61,10 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'name'      => 'string',
-        'order'     => 'int',
+        'name' => 'string',
+        'order' => 'int',
         'collapsed' => 'int',
-        'visible'   => 'int',
+        'visible' => 'int',
     ];
 
     /**
@@ -80,10 +80,10 @@ class ComponentGroup extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'      => 'required|string',
-        'order'     => 'required|int',
+        'name' => 'required|string',
+        'order' => 'required|int',
         'collapsed' => 'required|int|between:0,4',
-        'visible'   => 'required|bool',
+        'visible' => 'required|bool',
     ];
 
     /**

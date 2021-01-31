@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Request;
 use Jenssegers\Date\Date;
 
-if (!function_exists('setting')) {
+if (! function_exists('setting')) {
     /**
      * Get a setting, or the default value.
      *
@@ -36,7 +36,7 @@ if (!function_exists('setting')) {
     }
 }
 
-if (!function_exists('set_active')) {
+if (! function_exists('set_active')) {
     /**
      * Set active class if request is in path.
      *
@@ -58,7 +58,7 @@ if (!function_exists('set_active')) {
     }
 }
 
-if (!function_exists('formatted_date')) {
+if (! function_exists('formatted_date')) {
     /**
      * Formats a date with the user timezone and the selected format.
      *
@@ -74,7 +74,7 @@ if (!function_exists('formatted_date')) {
     }
 }
 
-if (!function_exists('color_darken')) {
+if (! function_exists('color_darken')) {
     /**
      * Darken a color.
      *
@@ -102,7 +102,7 @@ if (!function_exists('color_darken')) {
     }
 }
 
-if (!function_exists('color_contrast')) {
+if (! function_exists('color_contrast')) {
     /**
      * Calculates colour contrast.
      *
@@ -123,7 +123,7 @@ if (!function_exists('color_contrast')) {
     }
 }
 
-if (!function_exists('cachet_route_generator')) {
+if (! function_exists('cachet_route_generator')) {
     /**
      * Generate the route string.
      *
@@ -139,7 +139,7 @@ if (!function_exists('cachet_route_generator')) {
     }
 }
 
-if (!function_exists('cachet_route')) {
+if (! function_exists('cachet_route')) {
     /**
      * Generate a URL to a named route, which resides in a given domain.
      *
@@ -160,7 +160,7 @@ if (!function_exists('cachet_route')) {
     }
 }
 
-if (!function_exists('cachet_redirect')) {
+if (! function_exists('cachet_redirect')) {
     /**
      * Create a new redirect response to a named route, which resides in a given domain.
      *
@@ -181,7 +181,7 @@ if (!function_exists('cachet_redirect')) {
     }
 }
 
-if (!function_exists('execute')) {
+if (! function_exists('execute')) {
     /**
      * Send the given command to the dispatcher for execution.
      *

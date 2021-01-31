@@ -55,7 +55,7 @@ final class UpdateMetricPointCommand
      * @var string[]
      */
     public $rules = [
-        'value'      => 'nullable|numeric',
+        'value' => 'nullable|numeric',
         'created_at' => 'nullable|string',
     ];
 

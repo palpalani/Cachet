@@ -54,7 +54,7 @@ final class CreateUserCommand
     public $rules = [
         'username' => 'required|string',
         'password' => 'required|string',
-        'level'    => 'required|int',
+        'level' => 'required|int',
     ];
 
     /**

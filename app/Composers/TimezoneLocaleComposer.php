@@ -60,7 +60,7 @@ class TimezoneLocaleComposer
             $locale = basename($lang);
 
             return [$locale => Arr::get($enabledLangs, $locale, [
-                'name'   => $locale,
+                'name' => $locale,
                 'subset' => null,
             ])];
         }, glob(base_path('resources/lang').'/*'));
@@ -68,17 +68,17 @@ class TimezoneLocaleComposer
         $langs = call_user_func_array('array_merge', $langs);
 
         $regions = [
-            'UTC'        => DateTimeZone::UTC,
-            'Africa'     => DateTimeZone::AFRICA,
-            'America'    => DateTimeZone::AMERICA,
+            'UTC' => DateTimeZone::UTC,
+            'Africa' => DateTimeZone::AFRICA,
+            'America' => DateTimeZone::AMERICA,
             'Antarctica' => DateTimeZone::ANTARCTICA,
-            'Arctic'     => DateTimeZone::ARCTIC,
-            'Asia'       => DateTimeZone::ASIA,
-            'Atlantic'   => DateTimeZone::ATLANTIC,
-            'Australia'  => DateTimeZone::AUSTRALIA,
-            'Europe'     => DateTimeZone::EUROPE,
-            'Indian'     => DateTimeZone::INDIAN,
-            'Pacific'    => DateTimeZone::PACIFIC,
+            'Arctic' => DateTimeZone::ARCTIC,
+            'Asia' => DateTimeZone::ASIA,
+            'Atlantic' => DateTimeZone::ATLANTIC,
+            'Australia' => DateTimeZone::AUSTRALIA,
+            'Europe' => DateTimeZone::EUROPE,
+            'Indian' => DateTimeZone::INDIAN,
+            'Pacific' => DateTimeZone::PACIFIC,
         ];
 
         $timezones = [];

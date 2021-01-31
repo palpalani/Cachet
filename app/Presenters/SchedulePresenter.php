@@ -254,8 +254,8 @@ class SchedulePresenter extends BasePresenter implements Arrayable
             'human_status' => $this->human_status(),
             'scheduled_at' => $this->scheduled_at(),
             'completed_at' => $this->completed_at(),
-            'created_at'   => $this->created_at(),
-            'updated_at'   => $this->updated_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
         ]);
     }
 }

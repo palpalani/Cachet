@@ -34,9 +34,9 @@ class ActionStorageHandler
         $data = $event->getAction();
 
         $action = [
-            'class_name'  => get_class($event),
-            'user_id'     => $data['user']->id,
-            'username'    => $data['user']->username,
+            'class_name' => get_class($event),
+            'user_id' => $data['user']->id,
+            'username' => $data['user']->username,
             'description' => $data['description'],
         ];
 

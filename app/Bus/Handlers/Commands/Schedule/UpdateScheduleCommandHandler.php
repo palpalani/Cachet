@@ -80,9 +80,9 @@ class UpdateScheduleCommandHandler
     protected function filter(UpdateScheduleCommand $command)
     {
         $params = [
-            'name'    => $command->name,
+            'name' => $command->name,
             'message' => $command->message,
-            'status'  => $command->status,
+            'status' => $command->status,
         ];
 
         if ($scheduledAt = $command->scheduled_at) {

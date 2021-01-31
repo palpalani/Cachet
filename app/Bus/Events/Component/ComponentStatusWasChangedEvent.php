@@ -95,7 +95,7 @@ final class ComponentStatusWasChangedEvent implements ActionInterface, Component
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

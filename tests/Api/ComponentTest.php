@@ -84,13 +84,13 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
+            'name' => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'link'        => 'http://example.com',
-            'order'       => 1,
-            'group_id'    => 1,
-            'enabled'     => true,
+            'status' => 1,
+            'link' => 'http://example.com',
+            'order' => 1,
+            'group_id' => 1,
+            'enabled' => true,
         ]);
 
         $response->assertStatus(200);
@@ -104,8 +104,8 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
-            'status'      => 1,
+            'name' => 'Foo',
+            'status' => 1,
         ]);
 
         $response->assertStatus(200);
@@ -119,14 +119,14 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
+            'name' => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'link'        => 'http://example.com',
-            'order'       => 1,
-            'group_id'    => 1,
-            'enabled'     => true,
-            'tags'        => 'Foo,Bar',
+            'status' => 1,
+            'link' => 'http://example.com',
+            'order' => 1,
+            'group_id' => 1,
+            'enabled' => true,
+            'tags' => 'Foo,Bar',
         ]);
 
         $response->assertStatus(200);
@@ -140,12 +140,12 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
+            'name' => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'link'        => 'http://example.com',
-            'order'       => 1,
-            'group_id'    => 1,
+            'status' => 1,
+            'link' => 'http://example.com',
+            'order' => 1,
+            'group_id' => 1,
         ]);
 
         $response->assertStatus(200);
@@ -159,23 +159,23 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
+            'name' => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'link'        => 'http://example.com',
-            'order'       => 1,
-            'group_id'    => 1,
-            'enabled'     => true,
-            'meta'        => [
+            'status' => 1,
+            'link' => 'http://example.com',
+            'order' => 1,
+            'group_id' => 1,
+            'enabled' => true,
+            'meta' => [
                 'uuid' => '172ff3fb-41f7-49d3-8bcd-f57b53627fa0',
             ],
         ]);
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
-            'name'   => 'Foo',
+            'name' => 'Foo',
             'status' => 1,
-            'meta'   => [
+            'meta' => [
                 'uuid' => '172ff3fb-41f7-49d3-8bcd-f57b53627fa0',
             ],
         ]);
@@ -188,13 +188,13 @@ class ComponentTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components', [
-            'name'        => 'Foo',
+            'name' => 'Foo',
             'description' => 'Bar',
-            'status'      => 1,
-            'link'        => 'http://example.com',
-            'order'       => 1,
-            'group_id'    => 1,
-            'enabled'     => 0,
+            'status' => 1,
+            'link' => 'http://example.com',
+            'order' => 1,
+            'group_id' => 1,
+            'enabled' => 0,
         ]);
 
         $response->assertStatus(200);
@@ -271,7 +271,7 @@ class ComponentTest extends AbstractApiTestCase
         ]);
 
         $response = $this->json('PUT', '/api/v1/components/1', [
-            'name'   => 'Foo',
+            'name' => 'Foo',
             'status' => 2,
         ]);
 
@@ -293,7 +293,7 @@ class ComponentTest extends AbstractApiTestCase
         $response = $this->json('PUT', '/api/v1/components/1', [
             'meta' => [
                 'uuid' => '172ff3fb-41f7-49d3-8bcd-f57b53627fa0',
-                'foo'  => 'bar',
+                'foo' => 'bar',
             ],
         ]);
 
@@ -301,7 +301,7 @@ class ComponentTest extends AbstractApiTestCase
         $response->assertJsonFragment([
             'meta' => [
                 'uuid' => '172ff3fb-41f7-49d3-8bcd-f57b53627fa0',
-                'foo'  => 'bar',
+                'foo' => 'bar',
             ],
             'enabled' => $component->enabled,
         ]);

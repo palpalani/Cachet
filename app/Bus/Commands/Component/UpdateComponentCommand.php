@@ -98,15 +98,15 @@ final class UpdateComponentCommand
      * @var string[]
      */
     public $rules = [
-        'name'        => 'nullable|string',
+        'name' => 'nullable|string',
         'description' => 'nullable|string',
-        'status'      => 'nullable|int|min:0|max:4',
-        'link'        => 'nullable|url',
-        'order'       => 'nullable|int',
-        'group_id'    => 'nullable|int',
-        'enabled'     => 'nullable|bool',
-        'meta'        => 'nullable|array',
-        'silent'      => 'nullable|bool',
+        'status' => 'nullable|int|min:0|max:4',
+        'link' => 'nullable|url',
+        'order' => 'nullable|int',
+        'group_id' => 'nullable|int',
+        'enabled' => 'nullable|bool',
+        'meta' => 'nullable|array',
+        'silent' => 'nullable|bool',
     ];
 
     /**

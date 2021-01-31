@@ -75,13 +75,13 @@ final class UpdateScheduleCommand
      * @var string[]
      */
     public $rules = [
-        'schedule'     => 'required',
-        'name'         => 'nullable|string',
-        'message'      => 'nullable|string',
-        'status'       => 'nullable|int|min:0|max:2',
+        'schedule' => 'required',
+        'name' => 'nullable|string',
+        'message' => 'nullable|string',
+        'status' => 'nullable|int|min:0|max:2',
         'scheduled_at' => 'nullable|string',
         'completed_at' => 'nullable|string',
-        'components'   => 'nullable|array',
+        'components' => 'nullable|array',
     ];
 
     /**

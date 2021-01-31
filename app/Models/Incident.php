@@ -81,7 +81,7 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     protected $attributes = [
-        'stickied'      => false,
+        'stickied' => false,
         'notifications' => false,
     ];
 
@@ -91,14 +91,14 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'component_id'  => 'int',
-        'status'        => 'int',
-        'user_id'       => 'int',
-        'visible'       => 'int',
-        'stickied'      => 'bool',
+        'component_id' => 'int',
+        'status' => 'int',
+        'user_id' => 'int',
+        'visible' => 'int',
+        'stickied' => 'bool',
         'notifications' => 'bool',
-        'occurred_at'   => 'datetime',
-        'deleted_at'    => 'date',
+        'occurred_at' => 'datetime',
+        'deleted_at' => 'date',
     ];
 
     /**
@@ -126,14 +126,14 @@ class Incident extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'user_id'       => 'nullable|int',
-        'component_id'  => 'nullable|int',
-        'name'          => 'required|string',
-        'status'        => 'required|int',
-        'visible'       => 'required|bool',
-        'stickied'      => 'required|bool',
+        'user_id' => 'nullable|int',
+        'component_id' => 'nullable|int',
+        'name' => 'required|string',
+        'status' => 'required|int',
+        'visible' => 'required|bool',
+        'stickied' => 'required|bool',
         'notifications' => 'nullable|bool',
-        'message'       => 'required|string',
+        'message' => 'required|string',
     ];
 
     /**

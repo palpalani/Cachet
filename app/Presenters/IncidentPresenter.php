@@ -304,17 +304,17 @@ class IncidentPresenter extends BasePresenter implements Arrayable
     public function toArray()
     {
         return array_merge($this->wrappedObject->toArray(), [
-            'human_status'        => $this->human_status(),
-            'latest_update_id'    => $this->latest() ? $this->latest()->id : null,
-            'latest_status'       => $this->latest_status(),
+            'human_status' => $this->human_status(),
+            'latest_update_id' => $this->latest() ? $this->latest()->id : null,
+            'latest_status' => $this->latest_status(),
             'latest_human_status' => $this->latest_human_status(),
-            'latest_icon'         => $this->latest_icon(),
-            'permalink'           => $this->permalink(),
-            'duration'            => $this->duration(),
-            'meta'                => $this->meta(),
-            'occurred_at'         => $this->occurred_at(),
-            'created_at'          => $this->created_at(),
-            'updated_at'          => $this->updated_at(),
+            'latest_icon' => $this->latest_icon(),
+            'permalink' => $this->permalink(),
+            'duration' => $this->duration(),
+            'meta' => $this->meta(),
+            'occurred_at' => $this->occurred_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
         ]);
     }
 }

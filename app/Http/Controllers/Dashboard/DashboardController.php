@@ -89,7 +89,7 @@ class DashboardController extends Controller
         $componentGroups = $this->getVisibleGroupedComponents();
         $ungroupedComponents = Component::ungrouped()->get();
 
-        $welcomeUser = !Auth::user()->welcomed;
+        $welcomeUser = ! Auth::user()->welcomed;
         if ($welcomeUser) {
             execute(new WelcomeUserCommand(Auth::user()));
         }
@@ -123,7 +123,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allIncidents[$date->toDateString()])) {
+            if (! isset($allIncidents[$date->toDateString()])) {
                 $allIncidents[$date->toDateString()] = [];
             }
         }
@@ -155,7 +155,7 @@ class DashboardController extends Controller
         foreach (range(0, 30) as $i) {
             $date = (new Date($this->startDate))->setTimezone($this->dateTimeZone)->subDays($i);
 
-            if (!isset($allSubscribers[$date->toDateString()])) {
+            if (! isset($allSubscribers[$date->toDateString()])) {
                 $allSubscribers[$date->toDateString()] = [];
             }
         }
@@ -176,7 +176,7 @@ class DashboardController extends Controller
     protected function getVisibleGroupedComponents()
     {
         $componentGroupsBuilder = ComponentGroup::query();
-        if (!$this->guard->check()) {
+        if (! $this->guard->check()) {
             $componentGroupsBuilder = ComponentGroup::visible();
         }
 

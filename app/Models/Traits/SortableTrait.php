@@ -31,7 +31,7 @@ trait SortableTrait
      */
     public function scopeSort(Builder $query, $column, $direction)
     {
-        if (!in_array($column, $this->sortable)) {
+        if (! in_array($column, $this->sortable)) {
             return $query;
         }
 

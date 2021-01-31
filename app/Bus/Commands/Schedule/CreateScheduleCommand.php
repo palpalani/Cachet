@@ -73,13 +73,13 @@ final class CreateScheduleCommand
      * @var string[]
      */
     public $rules = [
-        'name'         => 'required|string',
-        'message'      => 'nullable|string',
-        'status'       => 'required|int|min:0|max:2',
+        'name' => 'required|string',
+        'message' => 'nullable|string',
+        'status' => 'required|int|min:0|max:2',
         'scheduled_at' => 'required|string',
         'completed_at' => 'nullable|string',
-        'components'   => 'nullable|array',
-        'notify'       => 'nullable|bool',
+        'components' => 'nullable|array',
+        'notify' => 'nullable|bool',
     ];
 
     /**

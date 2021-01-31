@@ -71,7 +71,7 @@ class SubscriberTest extends AbstractApiTestCase
         $this->expectsEvents(SubscriberHasSubscribedEvent::class);
 
         $response = $this->json('POST', '/api/v1/subscribers', [
-            'email'  => 'support@alt-three.com',
+            'email' => 'support@alt-three.com',
             'verify' => true,
         ]);
 
@@ -87,8 +87,8 @@ class SubscriberTest extends AbstractApiTestCase
         factory(Component::class, 3)->create();
 
         $response = $this->json('POST', '/api/v1/subscribers', [
-            'email'      => 'support@alt-three.com',
-            'verify'     => true,
+            'email' => 'support@alt-three.com',
+            'verify' => true,
             'components' => [
                 1,
                 3,

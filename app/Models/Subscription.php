@@ -26,7 +26,7 @@ class Subscription extends Model
      */
     protected $casts = [
         'subscriber_id' => 'int',
-        'component_id'  => 'int',
+        'component_id' => 'int',
     ];
 
     /**
@@ -46,7 +46,7 @@ class Subscription extends Model
      */
     public $rules = [
         'subscriber_id' => 'required|int',
-        'component_id'  => 'nullable|int',
+        'component_id' => 'nullable|int',
     ];
 
     /**

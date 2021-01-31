@@ -70,7 +70,7 @@ class MetricRepository
         $minutesWithNoData = 0;
 
         for ($i = 0; $i < $timeframe; $i++) {
-            if (!$points->has($pointKey)) {
+            if (! $points->has($pointKey)) {
                 if ($i >= $metric->threshold) {
                     $points->put($pointKey, $metric->default_value);
                     //We put default value as metric, so we can reset counter for minutes without data
@@ -107,7 +107,7 @@ class MetricRepository
         $points = $this->repository->getPointsSinceHour($metric, $hours)->pluck('value', 'key');
 
         for ($i = 0; $i < $hours; $i++) {
-            if (!$points->has($pointKey)) {
+            if (! $points->has($pointKey)) {
                 $points->put($pointKey, $metric->default_value);
             }
 
@@ -133,7 +133,7 @@ class MetricRepository
         $points = $this->repository->getPointsSinceDay($metric, 7)->pluck('value', 'key');
 
         for ($i = 0; $i <= 7; $i++) {
-            if (!$points->has($pointKey)) {
+            if (! $points->has($pointKey)) {
                 $points->put($pointKey, $metric->default_value);
             }
 
@@ -160,7 +160,7 @@ class MetricRepository
         $points = $this->repository->getPointsSinceDay($metric, $daysInMonth)->pluck('value', 'key');
 
         for ($i = 0; $i <= $daysInMonth; $i++) {
-            if (!$points->has($pointKey)) {
+            if (! $points->has($pointKey)) {
                 $points->put($pointKey, $metric->default_value);
             }
 

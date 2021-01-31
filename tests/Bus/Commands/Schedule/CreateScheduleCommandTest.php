@@ -28,13 +28,13 @@ class CreateScheduleCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'         => 'Test',
-            'message'      => 'Foo',
-            'status'       => 1,
+            'name' => 'Test',
+            'message' => 'Foo',
+            'status' => 1,
             'scheduled_at' => date('Y-m-d H:i'),
             'completed_at' => date('Y-m-d H:i'),
-            'components'   => [],
-            'notify'       => 1,
+            'components' => [],
+            'notify' => 1,
         ];
         $object = new CreateScheduleCommand(
             $params['name'],

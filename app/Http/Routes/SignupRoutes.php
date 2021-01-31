@@ -38,15 +38,15 @@ class SignupRoutes
     {
         $router->group([
             'middleware' => ['ready', 'guest'],
-            'prefix'     => 'signup',
+            'prefix' => 'signup',
         ], function (Registrar $router) {
             $router->get('invite/{code}', [
-                'as'   => 'get:signup.invite',
+                'as' => 'get:signup.invite',
                 'uses' => 'SignupController@getSignup',
             ]);
 
             $router->post('invite/{code}', [
-                'as'   => 'post:signup.invite',
+                'as' => 'post:signup.invite',
                 'uses' => 'SignupController@postSignup',
             ]);
         });

@@ -67,7 +67,7 @@ class UpdateIncidentUpdateCommandHandler
     protected function filter(UpdateIncidentUpdateCommand $command)
     {
         $params = [
-            'status'  => $command->status,
+            'status' => $command->status,
             'message' => $command->message,
             'user_id' => $command->user->id,
         ];

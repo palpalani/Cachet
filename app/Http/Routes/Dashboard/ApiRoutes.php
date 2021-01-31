@@ -39,8 +39,8 @@ class ApiRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
-            'prefix'     => 'dashboard/api',
+            'namespace' => 'Dashboard',
+            'prefix' => 'dashboard/api',
         ], function (Registrar $router) {
             $router->get('incidents/templates', 'ApiController@getIncidentTemplate');
             $router->post('components/groups/order', 'ApiController@postUpdateComponentGroupOrder');

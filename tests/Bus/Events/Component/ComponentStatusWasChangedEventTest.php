@@ -60,11 +60,11 @@ class ComponentStatusWasChangedEventTest extends AbstractComponentEventTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'user'            => new User(),
-            'component'       => new Component(),
+            'user' => new User(),
+            'component' => new Component(),
             'original_status' => 1,
-            'new_status'      => 2,
-            'silent'          => false,
+            'new_status' => 2,
+            'silent' => false,
         ];
         $object = new ComponentStatusWasChangedEvent(
             $params['user'],

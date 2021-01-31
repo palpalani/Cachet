@@ -39,13 +39,13 @@ class BaseRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
+            'namespace' => 'Dashboard',
         ], function (Registrar $router) {
             $router->get('admin', 'DashboardController@redirectAdmin');
 
             $router->group(['prefix' => 'dashboard'], function (Registrar $router) {
                 $router->get('/', [
-                    'as'   => 'get:dashboard',
+                    'as' => 'get:dashboard',
                     'uses' => 'DashboardController@showDashboard',
                 ]);
             });

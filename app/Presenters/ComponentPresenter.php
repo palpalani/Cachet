@@ -74,10 +74,10 @@ class ComponentPresenter extends BasePresenter implements Arrayable
     public function toArray()
     {
         return array_merge($this->wrappedObject->toArray(), [
-            'created_at'  => $this->created_at(),
-            'updated_at'  => $this->updated_at(),
+            'created_at' => $this->created_at(),
+            'updated_at' => $this->updated_at(),
             'status_name' => $this->human_status(),
-            'tags'        => $this->tags(),
+            'tags' => $this->tags(),
         ]);
     }
 }

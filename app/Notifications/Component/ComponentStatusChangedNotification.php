@@ -81,7 +81,7 @@ class ComponentStatusChangedNotification extends Notification
         $manageUrl = URL::signedRoute(cachet_route_generator('subscribe.manage'), ['code' => $notifiable->verify_code]);
 
         $content = trans('notifications.component.status_update.mail.content', [
-            'name'       => $this->component->name,
+            'name' => $this->component->name,
             'old_status' => $this->component->human_status,
             'new_status' => trans("cachet.components.status.{$this->status}"),
         ]);
@@ -89,12 +89,12 @@ class ComponentStatusChangedNotification extends Notification
         return (new MailMessage())
             ->subject(trans('notifications.component.status_update.mail.subject'))
             ->markdown('notifications.component.update', [
-                'componentName'          => $this->component->name,
-                'content'                => $content,
-                'unsubscribeText'        => trans('cachet.subscriber.unsubscribe'),
-                'unsubscribeUrl'         => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
+                'componentName' => $this->component->name,
+                'content' => $content,
+                'unsubscribeText' => trans('cachet.subscriber.unsubscribe'),
+                'unsubscribeUrl' => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
                 'manageSubscriptionText' => trans('cachet.subscriber.manage_subscription'),
-                'manageSubscriptionUrl'  => $manageUrl,
+                'manageSubscriptionUrl' => $manageUrl,
             ]);
     }
 
@@ -108,7 +108,7 @@ class ComponentStatusChangedNotification extends Notification
     public function toNexmo($notifiable)
     {
         $content = trans('notifications.component.status_update.sms.content', [
-            'name'       => $this->component->name,
+            'name' => $this->component->name,
             'old_status' => $this->component->human_status,
             'new_status' => trans("cachet.components.status.{$this->status}"),
         ]);
@@ -126,7 +126,7 @@ class ComponentStatusChangedNotification extends Notification
     public function toSlack($notifiable)
     {
         $content = trans('notifications.component.status_update.slack.content', [
-            'name'       => $this->component->name,
+            'name' => $this->component->name,
             'old_status' => $this->component->human_status,
             'new_status' => trans("cachet.components.status.{$this->status}"),
         ]);
@@ -147,10 +147,10 @@ class ComponentStatusChangedNotification extends Notification
                     ->attachment(function ($attachment) use ($content, $notifiable) {
                         $attachment->title($content, cachet_route('status-page'))
                                    ->fields(array_filter([
-                                       'Component'  => $this->component->name,
+                                       'Component' => $this->component->name,
                                        'Old Status' => $this->component->human_status,
                                        'New Status' => trans("cachet.components.status.{$this->status}"),
-                                       'Link'       => $this->component->link,
+                                       'Link' => $this->component->link,
                                    ]))
                                    ->footer(trans('cachet.subscriber.unsubscribe', ['link' => cachet_route('subscribe.unsubscribe', $notifiable->verify_code)]));
                     });

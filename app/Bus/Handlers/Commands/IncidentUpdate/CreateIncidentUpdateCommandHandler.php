@@ -54,9 +54,9 @@ class CreateIncidentUpdateCommandHandler
     {
         $data = [
             'incident_id' => $command->incident->id,
-            'status'      => $command->status,
-            'message'     => $command->message,
-            'user_id'     => $command->user->id,
+            'status' => $command->status,
+            'message' => $command->message,
+            'user_id' => $command->user->id,
         ];
 
         // Create the incident update.

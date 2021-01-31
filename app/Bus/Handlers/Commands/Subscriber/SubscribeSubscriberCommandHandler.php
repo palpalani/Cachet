@@ -53,7 +53,7 @@ class SubscribeSubscriberCommandHandler
         $components->each(function ($component) use ($subscriber) {
             Subscription::create([
                 'subscriber_id' => $subscriber->id,
-                'component_id'  => $component->id,
+                'component_id' => $component->id,
             ]);
         });
 

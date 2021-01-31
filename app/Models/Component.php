@@ -37,12 +37,12 @@ class Component extends Model implements HasPresenter
      * @var mixed[]
      */
     protected $attributes = [
-        'order'       => 0,
-        'group_id'    => 0,
+        'order' => 0,
+        'group_id' => 0,
         'description' => '',
-        'link'        => '',
-        'enabled'     => true,
-        'meta'        => null,
+        'link' => '',
+        'enabled' => true,
+        'meta' => null,
     ];
 
     /**
@@ -51,15 +51,15 @@ class Component extends Model implements HasPresenter
      * @var string[]
      */
     protected $casts = [
-        'name'        => 'string',
+        'name' => 'string',
         'description' => 'string',
-        'status'      => 'int',
-        'order'       => 'int',
-        'link'        => 'string',
-        'group_id'    => 'int',
-        'enabled'     => 'bool',
-        'meta'        => 'json',
-        'deleted_at'  => 'date',
+        'status' => 'int',
+        'order' => 'int',
+        'link' => 'string',
+        'group_id' => 'int',
+        'enabled' => 'bool',
+        'meta' => 'json',
+        'deleted_at' => 'date',
     ];
 
     /**
@@ -84,12 +84,12 @@ class Component extends Model implements HasPresenter
      * @var string[]
      */
     public $rules = [
-        'name'     => 'required|string',
-        'status'   => 'required|int',
-        'order'    => 'nullable|int',
+        'name' => 'required|string',
+        'status' => 'required|int',
+        'order' => 'nullable|int',
         'group_id' => 'nullable|int',
-        'link'     => 'nullable|url',
-        'enabled'  => 'required|bool',
+        'link' => 'nullable|url',
+        'enabled' => 'required|bool',
     ];
 
     /**
@@ -188,7 +188,7 @@ class Component extends Model implements HasPresenter
      */
     public function scopeAuthenticated(Builder $query, $authenticated)
     {
-        return $query->when(!$authenticated, function (Builder $query) {
+        return $query->when(! $authenticated, function (Builder $query) {
             return $query->whereDoesntHave('group', function (Builder $query) {
                 $query->where('visible', ComponentGroup::VISIBLE_AUTHENTICATED);
             });

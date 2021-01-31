@@ -96,7 +96,7 @@ class Releases implements ReleasesContract
      */
     public function latest()
     {
-        if (!$this->enabled) {
+        if (! $this->enabled) {
             return null;
         }
 
@@ -115,18 +115,17 @@ class Releases implements ReleasesContract
                     'timeout' => 5,
                     'connect_timeout' => 5,
                 ])->getBody(), true);
-
             } catch (\Exception $e) {
                 Log::warning('Unable to lookup latest Cachet release. ' . $e->getMessage());
+
                 return self::FAILED;
             }
-
         });
 
         return $release === self::FAILED ? null : [
             'tag_name' => $release['tag_name'],
             'prelease' => $release['prerelease'],
-            'draft'    => $release['draft'],
+            'draft' => $release['draft'],
         ];
     }
 }

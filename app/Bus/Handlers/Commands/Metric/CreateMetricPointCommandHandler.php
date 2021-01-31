@@ -87,8 +87,8 @@ class CreateMetricPointCommandHandler
 
         $data = [
             'metric_id' => $command->metric->id,
-            'value'     => $command->value,
-            'counter'   => 0,
+            'value' => $command->value,
+            'counter' => 0,
         ];
 
         if ($command->created_at) {

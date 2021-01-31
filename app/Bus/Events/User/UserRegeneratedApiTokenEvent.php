@@ -58,7 +58,7 @@ final class UserRegeneratedApiTokenEvent implements ActionInterface, UserEventIn
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

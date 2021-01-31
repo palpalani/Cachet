@@ -24,8 +24,8 @@ class ScheduleComponent extends Model
      * @var string[]
      */
     protected $casts = [
-        'schedule_id'      => 'int',
-        'component_id'     => 'int',
+        'schedule_id' => 'int',
+        'component_id' => 'int',
         'component_status' => 'int',
     ];
 
@@ -46,8 +46,8 @@ class ScheduleComponent extends Model
      * @var string[]
      */
     public $rules = [
-        'schedule_id'      => 'required|int',
-        'component_id'     => 'required|int',
+        'schedule_id' => 'required|int',
+        'component_id' => 'required|int',
         'component_status' => 'required|int',
     ];
 

@@ -29,18 +29,18 @@ class CreateIncidentCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'             => 'Test',
-            'status'           => 1,
-            'message'          => 'Foo bar baz',
-            'visible'          => 1,
-            'component_id'     => 1,
+            'name' => 'Test',
+            'status' => 1,
+            'message' => 'Foo bar baz',
+            'visible' => 1,
+            'component_id' => 1,
             'component_status' => 1,
-            'notify'           => false,
-            'stickied'         => false,
-            'occurred_at'      => null,
-            'template'         => null,
-            'template_vars'    => [],
-            'meta'             => [],
+            'notify' => false,
+            'stickied' => false,
+            'occurred_at' => null,
+            'template' => null,
+            'template_vars' => [],
+            'meta' => [],
         ];
 
         $object = new CreateIncidentCommand(

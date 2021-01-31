@@ -57,12 +57,12 @@ class SendIncidentEmailNotificationHandler
     {
         $incident = $event->incident;
 
-        if (!$event->notify || !$this->system->canNotifySubscribers()) {
+        if (! $event->notify || ! $this->system->canNotifySubscribers()) {
             return false;
         }
 
         // Only send emails for public incidents.
-        if (!$incident->visible) {
+        if (! $incident->visible) {
             return;
         }
 
@@ -73,7 +73,7 @@ class SendIncidentEmailNotificationHandler
             $subscriber->notify(new NewIncidentNotification($incident));
         });
 
-        if (!$incident->component) {
+        if (! $incident->component) {
             return;
         }
 

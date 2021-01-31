@@ -46,11 +46,11 @@ class UpdateSubscriberSubscriptionCommandHandler
 
         $subscriber->subscriptions()->delete();
 
-        if (!$updateSubscriptions->isEmpty()) {
+        if (! $updateSubscriptions->isEmpty()) {
             $updateSubscriptions->each(function ($subscription) use ($subscriber) {
                 Subscription::firstOrCreate([
                     'subscriber_id' => $subscriber->id,
-                    'component_id'  => $subscription->id,
+                    'component_id' => $subscription->id,
                 ]);
             });
         }

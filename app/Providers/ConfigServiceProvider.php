@@ -90,7 +90,7 @@ class ConfigServiceProvider extends ServiceProvider
         $this->app->config->set('cors.paths.api/v1/*.allowedOrigins', $allowedOrigins);
 
         // Set the mail from address.
-        if (!$this->app->config->get('mail.from.address')) {
+        if (! $this->app->config->get('mail.from.address')) {
             $url = parse_url($appDomain);
 
             if (isset($url['host'])) {
@@ -99,7 +99,7 @@ class ConfigServiceProvider extends ServiceProvider
         }
 
         // Set the mail from name.
-        if (!$this->app->config->get('mail.from.name')) {
+        if (! $this->app->config->get('mail.from.name')) {
             $this->app->config->set(
                 'mail.from.name',
                 $this->app->config->get('setting.app_name', $this->app->config->get('app.name'))

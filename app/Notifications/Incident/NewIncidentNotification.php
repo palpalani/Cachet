@@ -79,14 +79,14 @@ class NewIncidentNotification extends Notification
         return (new MailMessage())
                     ->subject(trans('notifications.incident.new.mail.subject'))
                     ->markdown('notifications.incident.new', [
-                        'incident'               => $this->incident,
-                        'content'                => $content,
-                        'actionText'             => trans('notifications.incident.new.mail.action'),
-                        'actionUrl'              => cachet_route('incident', [$this->incident]),
-                        'unsubscribeText'        => trans('cachet.subscriber.unsubscribe'),
-                        'unsubscribeUrl'         => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
+                        'incident' => $this->incident,
+                        'content' => $content,
+                        'actionText' => trans('notifications.incident.new.mail.action'),
+                        'actionUrl' => cachet_route('incident', [$this->incident]),
+                        'unsubscribeText' => trans('cachet.subscriber.unsubscribe'),
+                        'unsubscribeUrl' => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
                         'manageSubscriptionText' => trans('cachet.subscriber.manage_subscription'),
-                        'manageSubscriptionUrl'  => $manageUrl,
+                        'manageSubscriptionUrl' => $manageUrl,
                     ]);
     }
 
@@ -134,7 +134,7 @@ class NewIncidentNotification extends Notification
                         $attachment->title(trans('notifications.incident.new.slack.title', ['name' => $this->incident->name]))
                                    ->timestamp($this->incident->getWrappedObject()->occurred_at)
                                    ->fields(array_filter([
-                                       'ID'   => "#{$this->incident->id}",
+                                       'ID' => "#{$this->incident->id}",
                                        'Link' => $this->incident->permalink,
                                    ]));
                     });

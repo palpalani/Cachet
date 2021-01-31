@@ -90,12 +90,12 @@ class CreateScheduleCommandHandler
         }
 
         $params = [
-            'name'         => $command->name,
-            'message'      => $command->message,
-            'status'       => $command->status,
+            'name' => $command->name,
+            'message' => $command->message,
+            'status' => $command->status,
             'scheduled_at' => $scheduledAt,
             'completed_at' => $completedAt,
-            'notify'       => $command->notify,
+            'notify' => $command->notify,
         ];
 
         $availableParams = array_filter($params, function ($val) {

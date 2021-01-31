@@ -80,11 +80,11 @@ class NewScheduleNotification extends Notification implements ShouldQueue
         return (new MailMessage())
             ->subject(trans('notifications.schedule.new.mail.subject'))
             ->markdown('notifications.schedule.new', [
-                'content'                => $content,
-                'unsubscribeText'        => trans('cachet.subscriber.unsubscribe'),
-                'unsubscribeUrl'         => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
+                'content' => $content,
+                'unsubscribeText' => trans('cachet.subscriber.unsubscribe'),
+                'unsubscribeUrl' => cachet_route('subscribe.unsubscribe', $notifiable->verify_code),
                 'manageSubscriptionText' => trans('cachet.subscriber.manage_subscription'),
-                'manageSubscriptionUrl'  => $manageUrl,
+                'manageSubscriptionUrl' => $manageUrl,
             ]);
     }
 
@@ -125,7 +125,7 @@ class NewScheduleNotification extends Notification implements ShouldQueue
                         $attachment->title($content)
                                    ->timestamp($this->schedule->getWrappedObject()->scheduled_at)
                                    ->fields(array_filter([
-                                       'ID'     => "#{$this->schedule->id}",
+                                       'ID' => "#{$this->schedule->id}",
                                        'Status' => $this->schedule->human_status,
                                    ]));
                     });

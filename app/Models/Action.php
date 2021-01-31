@@ -30,10 +30,10 @@ class Action extends Model
      * @var string[]
      */
     protected $casts = [
-        'id'          => 'int',
-        'class_name'  => 'string',
-        'user_id'     => 'int',
-        'username'    => 'string',
+        'id' => 'int',
+        'class_name' => 'string',
+        'user_id' => 'int',
+        'username' => 'string',
         'information' => 'string',
         'description' => 'string',
     ];
@@ -51,10 +51,10 @@ class Action extends Model
      * @var string[]
      */
     public $rules = [
-        'id'          => 'nullable|int|min:1',
-        'class_name'  => 'required|string',
-        'user_id'     => 'required|int|min:1',
-        'username'    => 'required|string',
+        'id' => 'nullable|int|min:1',
+        'class_name' => 'required|string',
+        'user_id' => 'required|int|min:1',
+        'username' => 'required|string',
         'information' => 'nullable|string',
         'description' => 'required|string',
     ];

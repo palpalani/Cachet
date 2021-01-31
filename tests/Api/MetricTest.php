@@ -58,15 +58,15 @@ class MetricTest extends AbstractApiTestCase
         $this->beUser();
 
         $response = $this->json('POST', '/api/v1/metrics', [
-            'name'          => 'Foo',
-            'suffix'        => 'foo\'s per second',
-            'description'   => 'Lorem ipsum dolor',
+            'name' => 'Foo',
+            'suffix' => 'foo\'s per second',
+            'description' => 'Lorem ipsum dolor',
             'default_value' => 1,
             'display_chart' => 1,
-            'places'        => 0,
-            'view'          => 0,
-            'threshold'     => 5,
-            'order'         => 1,
+            'places' => 0,
+            'view' => 0,
+            'threshold' => 5,
+            'order' => 1,
         ]);
 
         $response->assertStatus(200);

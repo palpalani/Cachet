@@ -38,34 +38,34 @@ class AuthRoutes
     {
         $router->group([
             'middleware' => ['ready'],
-            'prefix'     => 'auth',
+            'prefix' => 'auth',
         ], function (Registrar $router) {
             $router->get('login', [
-                'as'         => 'get:auth.login',
+                'as' => 'get:auth.login',
                 'middleware' => 'guest',
-                'uses'       => 'AuthController@showLogin',
+                'uses' => 'AuthController@showLogin',
             ]);
 
             $router->post('login', [
-                'as'         => 'post:auth.login',
+                'as' => 'post:auth.login',
                 'middleware' => ['guest', 'throttle:10,10'],
-                'uses'       => 'AuthController@postLogin',
+                'uses' => 'AuthController@postLogin',
             ]);
 
             $router->get('2fa', [
-                'as'   => 'get:auth.two-factor',
+                'as' => 'get:auth.two-factor',
                 'uses' => 'AuthController@showTwoFactorAuth',
             ]);
 
             $router->post('2fa', [
-                'as'         => 'post:auth.two-factor',
+                'as' => 'post:auth.two-factor',
                 'middleware' => ['throttle:10,10'],
-                'uses'       => 'AuthController@postTwoFactor',
+                'uses' => 'AuthController@postTwoFactor',
             ]);
 
             $router->get('logout', [
-                'as'         => 'get:auth.logout',
-                'uses'       => 'AuthController@logoutAction',
+                'as' => 'get:auth.logout',
+                'uses' => 'AuthController@logoutAction',
                 'middleware' => 'auth',
             ]);
         });

@@ -14,10 +14,10 @@ namespace CachetHQ\Tests\Cachet;
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Cachet\Models\Setting;
+use CachetHQ\Cachet\Models\Subscriber;
+use CachetHQ\Cachet\Notifications\Subscriber\VerifySubscriptionNotification;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Notification;
-use CachetHQ\Cachet\Notifications\Subscriber\VerifySubscriptionNotification;
-use CachetHQ\Cachet\Models\Subscriber;
 use Illuminate\Support\Facades\URL;
 
 /**
@@ -89,7 +89,7 @@ class SmokeTest extends AbstractTestCase
     protected function configureApp()
     {
         factory(Setting::class)->create([
-            'name'  => 'app_name',
+            'name' => 'app_name',
             'value' => 'Cachet Test Suite',
         ]);
 

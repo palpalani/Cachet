@@ -185,7 +185,7 @@ class Repository
             return $value;
         }
 
-        if (!in_array($key, $this->notBooleans) && in_array($value, ['0', '1'])) {
+        if (! in_array($key, $this->notBooleans) && in_array($value, ['0', '1'])) {
             return (bool) $value;
         }
 

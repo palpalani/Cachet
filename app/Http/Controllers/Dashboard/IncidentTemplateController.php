@@ -124,7 +124,7 @@ class IncidentTemplateController extends Controller
     {
         try {
             IncidentTemplate::create([
-                'name'     => Binput::get('name'),
+                'name' => Binput::get('name'),
                 'template' => Binput::get('template', null, false, false),
             ]);
         } catch (ValidationException $e) {

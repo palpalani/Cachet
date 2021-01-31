@@ -82,7 +82,7 @@ abstract class AbstractMetricRepository
      */
     protected function getQueryType(Metric $metric)
     {
-        if (!isset($metric->calc_type) || $metric->calc_type == Metric::CALC_SUM) {
+        if (! isset($metric->calc_type) || $metric->calc_type == Metric::CALC_SUM) {
             return "sum({$this->getMetricPointsTable()}.value * {$this->getMetricPointsTable()}.counter) AS value";
         } elseif ($metric->calc_type == Metric::CALC_AVG) {
             return "avg({$this->getMetricPointsTable()}.value) AS value";
@@ -104,7 +104,7 @@ abstract class AbstractMetricRepository
         $results = Collection::make($results);
 
         return $results->map(function ($point) use ($metric) {
-            if (!$point->value) {
+            if (! $point->value) {
                 $point->value = $metric->default_value;
             }
 

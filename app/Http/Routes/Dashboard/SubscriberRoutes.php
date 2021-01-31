@@ -39,25 +39,25 @@ class SubscriberRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
-            'prefix'     => 'dashboard/subscribers',
+            'namespace' => 'Dashboard',
+            'prefix' => 'dashboard/subscribers',
         ], function (Registrar $router) {
             $router->get('/', [
-                'as'   => 'get:dashboard.subscribers',
+                'as' => 'get:dashboard.subscribers',
                 'uses' => 'SubscriberController@showSubscribers',
             ]);
 
             $router->get('create', [
-                'as'   => 'get:dashboard.subscribers.create',
+                'as' => 'get:dashboard.subscribers.create',
                 'uses' => 'SubscriberController@showAddSubscriber',
             ]);
             $router->post('create', [
-                'as'   => 'post:dashboard.subscribers.create',
+                'as' => 'post:dashboard.subscribers.create',
                 'uses' => 'SubscriberController@createSubscriberAction',
             ]);
 
             $router->delete('{subscriber}/delete', [
-                'as'   => 'delete:dashboard.subscribers.delete',
+                'as' => 'delete:dashboard.subscribers.delete',
                 'uses' => 'SubscriberController@deleteSubscriberAction',
             ]);
         });

@@ -25,8 +25,8 @@ class IncidentTemplate extends Model
      * @var string[]
      */
     protected $casts = [
-        'name'     => 'string',
-        'slug'     => 'string',
+        'name' => 'string',
+        'slug' => 'string',
         'template' => 'string',
     ];
 
@@ -43,7 +43,7 @@ class IncidentTemplate extends Model
      * @var string[]
      */
     public $rules = [
-        'name'     => 'required|string',
+        'name' => 'required|string',
         'template' => 'required|string',
     ];
 
@@ -57,7 +57,7 @@ class IncidentTemplate extends Model
         parent::boot();
 
         self::saving(function ($template) {
-            if (!$template->slug) {
+            if (! $template->slug) {
                 $template->slug = Str::slug($template->name);
             }
         });

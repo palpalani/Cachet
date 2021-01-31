@@ -43,7 +43,7 @@ class GeneralController extends AbstractApiController
         if ($latest) {
             $this->setMetaData([
                 'on_latest' => version_compare(CACHET_VERSION, $latest['tag_name']) === 1,
-                'latest'    => $latest,
+                'latest' => $latest,
             ]);
         }
 
@@ -60,7 +60,7 @@ class GeneralController extends AbstractApiController
         $system = app()->make(System::class)->getStatus();
 
         return $this->item([
-            'status'  => $system['system_status'],
+            'status' => $system['system_status'],
             'message' => $system['system_message'],
         ]);
     }

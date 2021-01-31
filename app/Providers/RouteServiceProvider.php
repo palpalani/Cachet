@@ -150,7 +150,7 @@ class RouteServiceProvider extends ServiceProvider
             SubstituteBindings::class,
         ];
 
-        if ($applyAlwaysAuthenticate && !$this->isWhiteListedAuthRoute($routes)) {
+        if ($applyAlwaysAuthenticate && ! $this->isWhiteListedAuthRoute($routes)) {
             $middleware[] = RemoteUserAuthenticate::class;
             $middleware[] = Authenticate::class;
         }
@@ -177,7 +177,7 @@ class RouteServiceProvider extends ServiceProvider
             Timezone::class,
         ];
 
-        if ($applyAlwaysAuthenticate && !$this->isWhiteListedAuthRoute($routes)) {
+        if ($applyAlwaysAuthenticate && ! $this->isWhiteListedAuthRoute($routes)) {
             $middleware[] = 'auth.api:true';
         }
 

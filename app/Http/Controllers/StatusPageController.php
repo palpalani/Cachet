@@ -59,7 +59,7 @@ class StatusPageController extends AbstractApiController
             // In this case, start_date GET parameter means the page
             $page = (int) Binput::get('start_date', 0);
 
-            $allIncidentDays = Incident::where('visible', '>=', (int) !Auth::check())
+            $allIncidentDays = Incident::where('visible', '>=', (int) ! Auth::check())
                                        ->select('occurred_at')
                                        ->whereBetween('occurred_at', [
                                            $endDate->format('Y-m-d').' 00:00:00',
@@ -97,21 +97,21 @@ class StatusPageController extends AbstractApiController
         }
 
         $allIncidents = Incident::with('component', 'updates.incident')
-            ->where('visible', '>=', (int) !Auth::check())->whereBetween('occurred_at', [
+            ->where('visible', '>=', (int) ! Auth::check())->whereBetween('occurred_at', [
                 $endDate->format('Y-m-d').' 00:00:00',
                 $startDate->format('Y-m-d').' 23:59:59',
             ])->orderBy('occurred_at', 'desc')->get()->groupBy(function (Incident $incident) {
                 return app(DateFactory::class)->make($incident->occurred_at)->toDateString();
             });
 
-        if (!$onlyDisruptedDays) {
+        if (! $onlyDisruptedDays) {
             $incidentDays = array_pad([], $appIncidentDays, null);
 
             // Add in days that have no incidents
             foreach ($incidentDays as $i => $day) {
                 $date = app(DateFactory::class)->make($startDate)->subDays($i);
 
-                if (!isset($allIncidents[$date->toDateString()])) {
+                if (! isset($allIncidents[$date->toDateString()])) {
                     $allIncidents[$date->toDateString()] = [];
                 }
             }
@@ -168,16 +168,24 @@ class StatusPageController extends AbstractApiController
         $metrics = app(MetricRepository::class);
 
         switch ($type) {
-            case 'last_hour': $metricData = $metrics->listPointsLastHour($metric); break;
-            case 'today': $metricData = $metrics->listPointsToday($metric); break;
-            case 'week': $metricData = $metrics->listPointsForWeek($metric); break;
-            case 'month': $metricData = $metrics->listPointsForMonth($metric); break;
+            case 'last_hour': $metricData = $metrics->listPointsLastHour($metric);
+
+break;
+            case 'today': $metricData = $metrics->listPointsToday($metric);
+
+break;
+            case 'week': $metricData = $metrics->listPointsForWeek($metric);
+
+break;
+            case 'month': $metricData = $metrics->listPointsForMonth($metric);
+
+break;
             default: $metricData = [];
         }
 
         return $this->item([
             'metric' => $metric->toArray(),
-            'items'  => $metricData,
+            'items' => $metricData,
         ]);
     }
 
@@ -193,10 +201,18 @@ class StatusPageController extends AbstractApiController
         $component = AutoPresenter::decorate($component);
 
         switch ($component->status_color) {
-            case 'reds': $color = Config::get('setting.style_reds', '#FF6F6F'); break;
-            case 'blues': $color = Config::get('setting.style_blues', '#3498DB'); break;
-            case 'greens': $color = Config::get('setting.style_greens', '#7ED321'); break;
-            case 'yellows': $color = Config::get('setting.style_yellows', '#F7CA18'); break;
+            case 'reds': $color = Config::get('setting.style_reds', '#FF6F6F');
+
+break;
+            case 'blues': $color = Config::get('setting.style_blues', '#3498DB');
+
+break;
+            case 'greens': $color = Config::get('setting.style_greens', '#7ED321');
+
+break;
+            case 'yellows': $color = Config::get('setting.style_yellows', '#F7CA18');
+
+break;
             default: $color = null;
         }
 

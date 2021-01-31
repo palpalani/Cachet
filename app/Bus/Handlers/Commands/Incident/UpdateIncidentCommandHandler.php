@@ -125,14 +125,14 @@ class UpdateIncidentCommandHandler
     protected function filter(UpdateIncidentCommand $command)
     {
         $params = [
-            'name'             => $command->name,
-            'status'           => $command->status,
-            'message'          => $command->message,
-            'visible'          => $command->visible,
-            'stickied'         => $command->stickied,
-            'component_id'     => $command->component_id,
+            'name' => $command->name,
+            'status' => $command->status,
+            'message' => $command->message,
+            'visible' => $command->visible,
+            'stickied' => $command->stickied,
+            'component_id' => $command->component_id,
             'component_status' => $command->component_status,
-            'notify'           => $command->notify,
+            'notify' => $command->notify,
         ];
 
         return array_filter($params, function ($val) {
@@ -155,14 +155,14 @@ class UpdateIncidentCommandHandler
 
         $vars = array_merge($command->template_vars, [
             'incident' => [
-                'name'             => $command->name,
-                'status'           => $command->status,
-                'message'          => $command->message,
-                'visible'          => $command->visible,
-                'notify'           => $command->notify,
-                'stickied'         => $command->stickied,
-                'occurred_at'      => $command->occurred_at,
-                'component'        => Component::find($command->component_id) ?: null,
+                'name' => $command->name,
+                'status' => $command->status,
+                'message' => $command->message,
+                'visible' => $command->visible,
+                'notify' => $command->notify,
+                'stickied' => $command->stickied,
+                'occurred_at' => $command->occurred_at,
+                'component' => Component::find($command->component_id) ?: null,
                 'component_status' => $command->component_status,
             ],
         ]);

@@ -12,15 +12,14 @@
 namespace CachetHQ\Tests\Cachet\Functional\Notifications;
 
 use CachetHQ\Cachet\Bus\Commands\Incident\CreateIncidentCommand;
-use CachetHQ\Cachet\Bus\Commands\Component\CreateComponentCommand;
 use CachetHQ\Cachet\Bus\Commands\Subscriber\SubscribeSubscriberCommand;
-use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Cachet\Models\Component;
+use CachetHQ\Cachet\Models\Incident;
 use CachetHQ\Cachet\Models\Subscriber;
 use CachetHQ\Cachet\Models\Subscription;
+use CachetHQ\Cachet\Notifications\Component\ComponentStatusChangedNotification;
 use CachetHQ\Cachet\Notifications\Incident\NewIncidentNotification;
 use CachetHQ\Cachet\Notifications\IncidentUpdate\IncidentUpdatedNotification;
-use CachetHQ\Cachet\Notifications\Component\ComponentStatusChangedNotification;
 use CachetHQ\Cachet\Notifications\Schedule\NewScheduleNotification;
 use CachetHQ\Cachet\Settings\Repository as SettingsRepository;
 use CachetHQ\Tests\Cachet\AbstractTestCase;
@@ -127,7 +126,7 @@ class MailTest extends AbstractTestCase
     protected function createComponent()
     {
         $component = factory(Component::class)->create([
-            'status' => 1
+            'status' => 1,
         ]);
 
         return $component;
@@ -146,24 +145,24 @@ class MailTest extends AbstractTestCase
         $subscriber = $this->createSubscriber($this->fakerFactory->safeEmail);
 
         $response = $this->post('dashboard/incidents/create', [
-            'name'    => $this->fakerFactory->word,
-            'status'  => 1,
+            'name' => $this->fakerFactory->word,
+            'status' => 1,
             'visible' => 1,
             'message' => $this->fakerFactory->paragraph,
-            'notify'  => 1,
+            'notify' => 1,
         ]);
 
         Notification::assertSentTo(
             [$subscriber],
             NewIncidentNotification::class,
             function ($notification, $channels) use ($subscriber) {
-
                 $mail = $notification->toMail($subscriber)->toArray();
                 $this->assertEquals('New Incident Reported', $mail['subject']);
 
                 //@todo Check the rendered content of the email rather than the raw data passed to the MD
                 $bodyData = $notification->toMail($subscriber)->data();
                 $this->assertContains('?signature=', $bodyData['manageSubscriptionUrl']);
+
                 return true;
             }
         );
@@ -182,24 +181,24 @@ class MailTest extends AbstractTestCase
         $subscriber = $this->createSubscriber($this->fakerFactory->safeEmail);
 
         $response = $this->post('dashboard/schedule/create', [
-            'name'    => $this->fakerFactory->word,
-            'status'  => 0,
+            'name' => $this->fakerFactory->word,
+            'status' => 0,
             'message' => $this->fakerFactory->paragraph,
-            'scheduled_at'=> $this->fakerFactory->date('Y-m-d H:i'),
-            'notify'  => 1,
+            'scheduled_at' => $this->fakerFactory->date('Y-m-d H:i'),
+            'notify' => 1,
         ]);
 
         Notification::assertSentTo(
             [$subscriber],
             NewScheduleNotification::class,
             function ($notification, $channels) use ($subscriber) {
-
                 $mail = $notification->toMail($subscriber)->toArray();
                 $this->assertEquals('New Schedule Created', $mail['subject']);
 
                 //@todo Check the rendered content of the email rather than the raw data passed to the MD
                 $bodyData = $notification->toMail($subscriber)->data();
                 $this->assertContains('?signature=', $bodyData['manageSubscriptionUrl']);
+
                 return true;
             }
         );
@@ -217,11 +216,11 @@ class MailTest extends AbstractTestCase
         $subscriber = $this->createSubscriber($this->fakerFactory->safeEmail);
 
         $response = $this->post('dashboard/incidents/create', [
-            'name'    => $this->fakerFactory->word,
-            'status'  => 1,
+            'name' => $this->fakerFactory->word,
+            'status' => 1,
             'visible' => 1,
             'message' => $this->fakerFactory->paragraph,
-            'notify'  => 0,
+            'notify' => 0,
         ]);
 
         Notification::assertNotSentTo(
@@ -244,7 +243,7 @@ class MailTest extends AbstractTestCase
         $subscriber = $this->createSubscriber($this->fakerFactory->safeEmail);
 
         $response = $this->post('dashboard/incidents/'.$incident->id.'/updates/create', [
-            'status'  => 1,
+            'status' => 1,
             'message' => $this->fakerFactory->paragraph,
         ]);
 
@@ -252,13 +251,13 @@ class MailTest extends AbstractTestCase
             [$subscriber],
             IncidentUpdatedNotification::class,
             function ($notification, $channels) use ($subscriber) {
-
                 $mail = $notification->toMail($subscriber)->toArray();
                 $this->assertEquals('Incident Updated', $mail['subject']);
 
                 //@todo Check the rendered content of the email rather than the raw data passed to the MD
                 $bodyData = $notification->toMail($subscriber)->data();
                 $this->assertContains('?signature=', $bodyData['manageSubscriptionUrl']);
+
                 return true;
             }
         );
@@ -283,20 +282,20 @@ class MailTest extends AbstractTestCase
 
         $response = $this->post('dashboard/api/components/'.$component->id, [
             'status' => 2,
-            'component_id' => $component->id
+            'component_id' => $component->id,
         ]);
 
         Notification::assertSentTo(
             [$subscriber],
             ComponentStatusChangedNotification::class,
             function ($notification, $channels) use ($subscriber) {
-
                 $mail = $notification->toMail($subscriber)->toArray();
                 $this->assertEquals('Component Status Updated', $mail['subject']);
 
                 //@todo Check the rendered content of the email rather than the raw data passed to the MD
                 $bodyData = $notification->toMail($subscriber)->data();
                 $this->assertContains('?signature=', $bodyData['manageSubscriptionUrl']);
+
                 return true;
             }
         );

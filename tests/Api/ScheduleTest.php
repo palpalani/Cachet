@@ -48,9 +48,9 @@ class ScheduleTest extends AbstractApiTestCase
         $this->beUser();
 
         $schedule = [
-            'name'         => 'Test Schedule',
-            'message'      => 'Foo bar, baz.',
-            'status'       => 1,
+            'name' => 'Test Schedule',
+            'message' => 'Foo bar, baz.',
+            'status' => 1,
             'scheduled_at' => date('Y-m-d H:i'),
         ];
 

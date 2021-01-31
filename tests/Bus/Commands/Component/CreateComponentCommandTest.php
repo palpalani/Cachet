@@ -29,15 +29,15 @@ class CreateComponentCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'name'        => 'Test',
+            'name' => 'Test',
             'description' => 'Foo',
-            'status'      => 1,
-            'link'        => 'https://cachethq.io',
-            'order'       => 0,
-            'group_id'    => 0,
-            'enabled'     => true,
-            'meta'        => null,
-            'tags'        => 'Foo, Bar',
+            'status' => 1,
+            'link' => 'https://cachethq.io',
+            'order' => 0,
+            'group_id' => 0,
+            'enabled' => true,
+            'meta' => null,
+            'tags' => 'Foo, Bar',
         ];
         $object = new CreateComponentCommand(
             $params['name'],

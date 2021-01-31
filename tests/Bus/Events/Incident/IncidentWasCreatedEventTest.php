@@ -30,9 +30,9 @@ class IncidentWasCreatedEventTest extends AbstractIncidentEventTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'user'     => new User(),
+            'user' => new User(),
             'incident' => new Incident(),
-            'notify'   => true,
+            'notify' => true,
         ];
         $object = new IncidentWasCreatedEvent($params['user'], $params['incident'], $params['notify']);
 

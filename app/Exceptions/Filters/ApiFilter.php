@@ -32,7 +32,7 @@ class ApiFilter
     {
         if ($request->is('api*')) {
             foreach ($displayers as $index => $displayer) {
-                if (!Str::contains($displayer->contentType(), 'application/')) {
+                if (! Str::contains($displayer->contentType(), 'application/')) {
                     unset($displayers[$index]);
                 }
             }

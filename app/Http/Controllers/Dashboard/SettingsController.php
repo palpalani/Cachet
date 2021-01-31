@@ -48,69 +48,69 @@ class SettingsController extends Controller
     {
         $this->subMenu = [
             'setup' => [
-                'title'  => trans('dashboard.settings.app-setup.app-setup'),
-                'url'    => cachet_route('dashboard.settings.setup'),
-                'icon'   => 'ion-gear-b',
+                'title' => trans('dashboard.settings.app-setup.app-setup'),
+                'url' => cachet_route('dashboard.settings.setup'),
+                'icon' => 'ion-gear-b',
                 'active' => false,
             ],
             'theme' => [
-                'title'  => trans('dashboard.settings.theme.theme'),
-                'url'    => cachet_route('dashboard.settings.theme'),
-                'icon'   => 'ion-paintbrush',
+                'title' => trans('dashboard.settings.theme.theme'),
+                'url' => cachet_route('dashboard.settings.theme'),
+                'icon' => 'ion-paintbrush',
                 'active' => false,
             ],
             'stylesheet' => [
-                'title'  => trans('dashboard.settings.stylesheet.stylesheet'),
-                'url'    => cachet_route('dashboard.settings.stylesheet'),
-                'icon'   => 'ion-paintbucket',
+                'title' => trans('dashboard.settings.stylesheet.stylesheet'),
+                'url' => cachet_route('dashboard.settings.stylesheet'),
+                'icon' => 'ion-paintbucket',
                 'active' => false,
             ],
             'customization' => [
-                'title'  => trans('dashboard.settings.customization.customization'),
-                'url'    => cachet_route('dashboard.settings.customization'),
-                'icon'   => 'ion-wand',
+                'title' => trans('dashboard.settings.customization.customization'),
+                'url' => cachet_route('dashboard.settings.customization'),
+                'icon' => 'ion-wand',
                 'active' => false,
             ],
             'localization' => [
-                'title'  => trans('dashboard.settings.localization.localization'),
-                'url'    => cachet_route('dashboard.settings.localization'),
-                'icon'   => 'ion-earth',
+                'title' => trans('dashboard.settings.localization.localization'),
+                'url' => cachet_route('dashboard.settings.localization'),
+                'icon' => 'ion-earth',
                 'active' => false,
             ],
             'security' => [
-                'title'  => trans('dashboard.settings.security.security'),
-                'url'    => cachet_route('dashboard.settings.security'),
-                'icon'   => 'ion-lock-combination',
+                'title' => trans('dashboard.settings.security.security'),
+                'url' => cachet_route('dashboard.settings.security'),
+                'icon' => 'ion-lock-combination',
                 'active' => false,
             ],
             'analytics' => [
-                'title'  => trans('dashboard.settings.analytics.analytics'),
-                'url'    => cachet_route('dashboard.settings.analytics'),
-                'icon'   => 'ion-stats-bars',
+                'title' => trans('dashboard.settings.analytics.analytics'),
+                'url' => cachet_route('dashboard.settings.analytics'),
+                'icon' => 'ion-stats-bars',
                 'active' => false,
             ],
             'log' => [
-                'title'  => trans('dashboard.settings.log.log'),
-                'url'    => cachet_route('dashboard.settings.log'),
-                'icon'   => 'ion-document-text',
+                'title' => trans('dashboard.settings.log.log'),
+                'url' => cachet_route('dashboard.settings.log'),
+                'icon' => 'ion-document-text',
                 'active' => false,
             ],
             'credits' => [
-                'title'  => trans('dashboard.settings.credits.credits'),
-                'url'    => cachet_route('dashboard.settings.credits'),
-                'icon'   => 'ion-ios-list',
+                'title' => trans('dashboard.settings.credits.credits'),
+                'url' => cachet_route('dashboard.settings.credits'),
+                'icon' => 'ion-ios-list',
                 'active' => false,
             ],
             'mail' => [
-                'title'  => trans('dashboard.settings.mail.mail'),
-                'url'    => cachet_route('dashboard.settings.mail'),
-                'icon'   => 'ion-paper-airplane',
+                'title' => trans('dashboard.settings.mail.mail'),
+                'url' => cachet_route('dashboard.settings.mail'),
+                'icon' => 'ion-paper-airplane',
                 'active' => false,
             ],
             'about' => [
-                'title'  => CACHET_VERSION,
-                'url'    => 'javascript: void(0);',
-                'icon'   => 'ion-flag',
+                'title' => CACHET_VERSION,
+                'url' => 'javascript: void(0);',
+                'icon' => 'ion-flag',
                 'active' => false,
             ],
         ];
@@ -122,7 +122,7 @@ class SettingsController extends Controller
 
         View::share([
             'subTitle' => trans('dashboard.settings.settings'),
-            'subMenu'  => $this->subMenu,
+            'subMenu' => $this->subMenu,
         ]);
     }
 
@@ -270,7 +270,7 @@ class SettingsController extends Controller
             ->withBackers(($credits) ? $backers : false)
             ->withContributors(($credits) ? $contributors : false)
             ->withSubMenu($this->subMenu)
-            ->withErrors((!$credits) ? trans('dashboard.settings.credits.unable-to-load') : null);
+            ->withErrors((! $credits) ? trans('dashboard.settings.credits.unable-to-load') : null);
     }
 
     /**
@@ -433,11 +433,11 @@ class SettingsController extends Controller
             return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.app-setup.too-big', ['size' => $maxSize]));
         }
 
-        if (!$file->isValid() || $file->getError()) {
+        if (! $file->isValid() || $file->getError()) {
             return Redirect::to($redirectUrl)->withErrors($file->getErrorMessage());
         }
 
-        if (!Str::startsWith($file->getMimeType(), 'image/')) {
+        if (! Str::startsWith($file->getMimeType(), 'image/')) {
             return Redirect::to($redirectUrl)->withErrors(trans('dashboard.settings.app-setup.images-only'));
         }
 

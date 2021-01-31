@@ -39,20 +39,20 @@ class UserRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
-            'prefix'     => 'dashboard/user',
+            'namespace' => 'Dashboard',
+            'prefix' => 'dashboard/user',
         ], function (Registrar $router) {
             $router->get('/', [
-                'as'   => 'get:dashboard.user',
+                'as' => 'get:dashboard.user',
                 'uses' => 'UserController@showUser',
             ]);
             $router->post('/', [
-                'as'   => 'post:dashboard.user',
+                'as' => 'post:dashboard.user',
                 'uses' => 'UserController@postUser',
             ]);
 
             $router->get('{user}/api/regen', [
-                'as'   => 'get:dashboard.user.api.regen',
+                'as' => 'get:dashboard.user.api.regen',
                 'uses' => 'UserController@regenerateApiKey',
             ]);
         });

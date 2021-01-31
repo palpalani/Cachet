@@ -46,7 +46,7 @@ class DemoMetricPointSeederCommand extends Command
      */
     public function handle()
     {
-        if (!$this->confirmToProceed()) {
+        if (! $this->confirmToProceed()) {
             return;
         }
 
@@ -74,8 +74,8 @@ class DemoMetricPointSeederCommand extends Command
                 $pointTime = date("Y-m-d {$i}:{$j}:00");
 
                 $points[] = [
-                    'metric_id'  => 1,
-                    'value'      => random_int(1, 10),
+                    'metric_id' => 1,
+                    'value' => random_int(1, 10),
                     'created_at' => $pointTime,
                     'updated_at' => $pointTime,
                 ];

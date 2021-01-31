@@ -70,7 +70,7 @@ class Tag extends Model
 
             $tag = static::where('name', '=', $value)->first();
 
-            if (!$tag instanceof self) {
+            if (! $tag instanceof self) {
                 $tag = static::create([
                     'name' => $value,
                     'slug' => Str::slug($value),

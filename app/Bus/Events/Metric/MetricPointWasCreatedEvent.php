@@ -68,7 +68,7 @@ final class MetricPointWasCreatedEvent implements ActionInterface, MetricEventIn
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

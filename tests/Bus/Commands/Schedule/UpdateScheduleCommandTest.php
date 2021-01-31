@@ -29,13 +29,13 @@ class UpdateScheduleCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'schedule'     => new Schedule(),
-            'name'         => 'Foo',
-            'message'      => 'Bar',
-            'status'       => 1,
+            'schedule' => new Schedule(),
+            'name' => 'Foo',
+            'message' => 'Bar',
+            'status' => 1,
             'scheduled_at' => date('Y-m-d H:i'),
             'completed_at' => date('Y-m-d H:i'),
-            'components'   => [],
+            'components' => [],
         ];
         $object = new UpdateScheduleCommand(
             $params['schedule'],

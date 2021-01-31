@@ -31,7 +31,7 @@ class StoresMetaTest extends AbstractTestCase
     {
         parent::setUp();
 
-        if (!class_exists('Mockery')) {
+        if (! class_exists('Mockery')) {
             $this->markTestSkipped('This test requires Mockery');
         }
 

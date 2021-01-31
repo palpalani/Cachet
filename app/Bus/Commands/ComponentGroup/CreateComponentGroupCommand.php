@@ -52,10 +52,10 @@ final class CreateComponentGroupCommand
      * @var string[]
      */
     public $rules = [
-        'name'      => 'required|string',
-        'order'     => 'required|int',
+        'name' => 'required|string',
+        'order' => 'required|int',
         'collapsed' => 'required|int|between:0,4',
-        'visible'   => 'required|bool',
+        'visible' => 'required|bool',
     ];
 
     /**

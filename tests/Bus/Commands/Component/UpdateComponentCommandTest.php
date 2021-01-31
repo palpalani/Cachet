@@ -30,17 +30,17 @@ class UpdateComponentCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'component'   => new Component(),
-            'name'        => 'Test',
+            'component' => new Component(),
+            'name' => 'Test',
             'description' => 'Foo',
-            'status'      => 1,
-            'link'        => 'https://cachethq.io',
-            'order'       => 0,
-            'group_id'    => 0,
-            'enabled'     => true,
-            'meta'        => null,
-            'tags'        => null,
-            'silent'      => false,
+            'status' => 1,
+            'link' => 'https://cachethq.io',
+            'order' => 0,
+            'group_id' => 0,
+            'enabled' => true,
+            'meta' => null,
+            'tags' => null,
+            'silent' => false,
         ];
 
         $object = new UpdateComponentCommand(

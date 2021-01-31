@@ -31,9 +31,9 @@ class UpdateMetricPointCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'point'      => new MetricPoint(),
-            'metric'     => new Metric(),
-            'value'      => 1,
+            'point' => new MetricPoint(),
+            'metric' => new Metric(),
+            'value' => 1,
             'created_at' => '2012-12-30 12:00:00',
         ];
 

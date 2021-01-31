@@ -69,7 +69,7 @@ class IncidentUpdateTest extends AbstractApiTestCase
         $incident = factory(Incident::class)->create();
 
         $response = $this->json('POST', "/api/v1/incidents/{$incident->id}/updates", [
-            'status'  => 4,
+            'status' => 4,
             'message' => 'Incident fixed!',
         ]);
 

@@ -51,7 +51,7 @@ class SendScheduleEmailNotificationHandler
     public function handle(ScheduleEventInterface $event)
     {
         $schedule = $event->schedule;
-        if (!$event->notify) {
+        if (! $event->notify) {
             return false;
         }
 

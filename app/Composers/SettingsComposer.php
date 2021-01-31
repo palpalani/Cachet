@@ -26,12 +26,12 @@ class SettingsComposer
      * @var string[]
      */
     protected $cacheDrivers = [
-        'apc'       => 'APC(u)',
-        'array'     => 'Array',
-        'database'  => 'Database',
-        'file'      => 'File',
+        'apc' => 'APC(u)',
+        'array' => 'Array',
+        'database' => 'Database',
+        'file' => 'File',
         'memcached' => 'Memcached',
-        'redis'     => 'Redis',
+        'redis' => 'Redis',
     ];
 
     /**
@@ -40,14 +40,14 @@ class SettingsComposer
      * @var string[]
      */
     protected $mailDrivers = [
-        'smtp'      => 'SMTP',
-        'mail'      => 'Mail',
-        'sendmail'  => 'Sendmail',
-        'mailgun'   => 'Mailgun',
-        'mandrill'  => 'Mandrill',
-        'ses'       => 'Amazon SES',
+        'smtp' => 'SMTP',
+        'mail' => 'Mail',
+        'sendmail' => 'Sendmail',
+        'mailgun' => 'Mailgun',
+        'mandrill' => 'Mandrill',
+        'ses' => 'Amazon SES',
         'sparkpost' => 'SparkPost',
-        'log'       => 'Log (Testing)',
+        'log' => 'Log (Testing)',
     ];
 
     /**
@@ -56,12 +56,12 @@ class SettingsComposer
      * @var string[]
      */
     protected $queueDrivers = [
-        'null'       => 'None',
-        'sync'       => 'Synchronous',
-        'database'   => 'Database',
+        'null' => 'None',
+        'sync' => 'Synchronous',
+        'database' => 'Database',
         'beanstalkd' => 'Beanstalk',
-        'sqs'        => 'Amazon SQS',
-        'redis'      => 'Redis',
+        'sqs' => 'Amazon SQS',
+        'redis' => 'Redis',
     ];
 
     /**

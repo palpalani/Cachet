@@ -53,7 +53,7 @@ class GeneralTest extends AbstractApiTestCase
                  ->assertHeader('Cache-Control')
                  ->assertJsonFragment([
                      'data' => [
-                         'status'  => 'success',
+                         'status' => 'success',
                          'message' => 'System operational',
                      ],
                  ]);
@@ -71,7 +71,7 @@ class GeneralTest extends AbstractApiTestCase
                  ->assertHeader('Cache-Control')
                  ->assertJsonFragment([
                      'data' => [
-                         'status'  => 'info',
+                         'status' => 'info',
                          'message' => 'The system is experiencing issues',
                      ],
                  ]);

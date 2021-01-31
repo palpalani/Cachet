@@ -64,7 +64,7 @@ class Localize
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!(bool) $this->settings->get('automatic_localization')) {
+        if (! (bool) $this->settings->get('automatic_localization')) {
             return $next($request);
         }
 
@@ -77,6 +77,7 @@ class Localize
 
             if (isset($langs[$language])) {
                 $userLanguage = $language;
+
                 break;
             }
         }

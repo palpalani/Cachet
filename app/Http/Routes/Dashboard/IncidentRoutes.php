@@ -39,54 +39,54 @@ class IncidentRoutes
     {
         $router->group([
             'middleware' => ['auth'],
-            'namespace'  => 'Dashboard',
-            'prefix'     => 'dashboard/incidents',
+            'namespace' => 'Dashboard',
+            'prefix' => 'dashboard/incidents',
         ], function (Registrar $router) {
             $router->get('/', [
-                'as'   => 'get:dashboard.incidents',
+                'as' => 'get:dashboard.incidents',
                 'uses' => 'IncidentController@showIncidents',
             ]);
 
             $router->get('create', [
-                'as'   => 'get:dashboard.incidents.create',
+                'as' => 'get:dashboard.incidents.create',
                 'uses' => 'IncidentController@showAddIncident',
             ]);
             $router->post('create', [
-                'as'   => 'post:dashboard.incidents.create',
+                'as' => 'post:dashboard.incidents.create',
                 'uses' => 'IncidentController@createIncidentAction',
             ]);
 
             $router->get('{incident}', [
-                'as'   => 'get:dashboard.incidents.edit',
+                'as' => 'get:dashboard.incidents.edit',
                 'uses' => 'IncidentController@showEditIncidentAction',
             ]);
             $router->post('{incident}', [
-                'as'   => 'post:dashboard.incidents.edit',
+                'as' => 'post:dashboard.incidents.edit',
                 'uses' => 'IncidentController@editIncidentAction',
             ]);
             $router->delete('{incident}', [
-                'as'   => 'delete:dashboard.incidents.delete',
+                'as' => 'delete:dashboard.incidents.delete',
                 'uses' => 'IncidentController@deleteIncidentAction',
             ]);
 
             $router->get('{incident}/updates', [
-                'as'   => 'get:dashboard.incidents.updates',
+                'as' => 'get:dashboard.incidents.updates',
                 'uses' => 'IncidentUpdateController@showIncidentUpdates',
             ]);
             $router->get('{incident}/updates/create', [
-                'as'   => 'get:dashboard.incidents.updates.create',
+                'as' => 'get:dashboard.incidents.updates.create',
                 'uses' => 'IncidentUpdateController@showCreateIncidentUpdateAction',
             ]);
             $router->post('{incident}/updates/create', [
-                'as'   => 'post:dashboard.incidents.updates.create',
+                'as' => 'post:dashboard.incidents.updates.create',
                 'uses' => 'IncidentUpdateController@createIncidentUpdateAction',
             ]);
             $router->get('{incident}/updates/{incident_update}', [
-                'as'   => 'get:dashboard.incidents.updates.edit',
+                'as' => 'get:dashboard.incidents.updates.edit',
                 'uses' => 'IncidentUpdateController@showEditIncidentUpdateAction',
             ]);
             $router->post('{incident}/updates/{incident_update}', [
-                'as'   => 'post:dashboard.incidents.updates.edit',
+                'as' => 'post:dashboard.incidents.updates.edit',
                 'uses' => 'IncidentUpdateController@editIncidentUpdateAction',
             ]);
         });

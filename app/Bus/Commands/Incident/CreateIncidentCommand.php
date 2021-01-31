@@ -109,17 +109,17 @@ final class CreateIncidentCommand
      * @var string[]
      */
     public $rules = [
-        'name'             => 'required|string',
-        'status'           => 'required|int|min:0|max:4',
-        'message'          => 'nullable|string',
-        'visible'          => 'nullable|bool',
-        'component_id'     => 'nullable|required_with:component_status|int',
+        'name' => 'required|string',
+        'status' => 'required|int|min:0|max:4',
+        'message' => 'nullable|string',
+        'visible' => 'nullable|bool',
+        'component_id' => 'nullable|required_with:component_status|int',
         'component_status' => 'nullable|required_with:component_id|int|min:0|max:4',
-        'notify'           => 'nullable|bool',
-        'stickied'         => 'required|bool',
-        'occurred_at'      => 'nullable|string',
-        'template'         => 'nullable|string',
-        'meta'             => 'nullable|array',
+        'notify' => 'nullable|bool',
+        'stickied' => 'required|bool',
+        'occurred_at' => 'nullable|string',
+        'template' => 'nullable|string',
+        'meta' => 'nullable|array',
     ];
 
     /**

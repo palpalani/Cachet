@@ -57,13 +57,13 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $casts = [
-        'username'          => 'string',
-        'email'             => 'string',
+        'username' => 'string',
+        'email' => 'string',
         'google_2fa_secret' => 'string',
-        'api_key'           => 'string',
-        'active'            => 'bool',
-        'level'             => 'int',
-        'welcomed'          => 'bool',
+        'api_key' => 'string',
+        'active' => 'bool',
+        'level' => 'int',
+        'welcomed' => 'bool',
     ];
 
     /**
@@ -105,7 +105,7 @@ class User extends Authenticatable
      */
     public $rules = [
         'username' => ['required', 'regex:/\A(?!.*[:;]-\))[ -~]+\z/'],
-        'email'    => 'required|email',
+        'email' => 'required|email',
         'password' => 'required',
     ];
 
@@ -119,7 +119,7 @@ class User extends Authenticatable
         parent::boot();
 
         self::creating(function ($user) {
-            if (!$user->api_key) {
+            if (! $user->api_key) {
                 $user->api_key = self::generateApiKey();
             }
         });

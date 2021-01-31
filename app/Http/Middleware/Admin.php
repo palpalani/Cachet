@@ -54,7 +54,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$this->auth->check() || ($this->auth->check() && !$this->auth->user()->isAdmin)) {
+        if (! $this->auth->check() || ($this->auth->check() && ! $this->auth->user()->isAdmin)) {
             throw new HttpException(401);
         }
 

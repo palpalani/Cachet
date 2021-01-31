@@ -30,18 +30,18 @@ class UpdateMetricCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'metric'        => new Metric(),
-            'name'          => 'Coffee',
-            'suffix'        => 'cups',
-            'description'   => 'Cups of coffee consumed',
+            'metric' => new Metric(),
+            'name' => 'Coffee',
+            'suffix' => 'cups',
+            'description' => 'Cups of coffee consumed',
             'default_value' => 0,
-            'calc_type'     => 0,
+            'calc_type' => 0,
             'display_chart' => 1,
-            'places'        => 0,
-            'default_view'  => 0,
-            'threshold'     => 0,
-            'order'         => 0,
-            'visible'       => 1,
+            'places' => 0,
+            'default_view' => 0,
+            'threshold' => 0,
+            'order' => 0,
+            'visible' => 1,
         ];
 
         $object = new UpdateMetricCommand(

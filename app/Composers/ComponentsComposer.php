@@ -67,7 +67,7 @@ class ComponentsComposer
     protected function getVisibleGroupedComponents()
     {
         $componentGroupsBuilder = ComponentGroup::query();
-        if (!$this->guard->check()) {
+        if (! $this->guard->check()) {
             $componentGroupsBuilder->visible();
         }
 

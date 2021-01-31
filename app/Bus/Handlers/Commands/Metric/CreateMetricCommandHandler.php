@@ -47,17 +47,17 @@ class CreateMetricCommandHandler
     public function handle(CreateMetricCommand $command)
     {
         $metric = Metric::create([
-            'name'          => $command->name,
-            'suffix'        => $command->suffix,
-            'description'   => $command->description,
+            'name' => $command->name,
+            'suffix' => $command->suffix,
+            'description' => $command->description,
             'default_value' => $command->default_value,
-            'calc_type'     => $command->calc_type,
+            'calc_type' => $command->calc_type,
             'display_chart' => $command->display_chart,
-            'places'        => $command->places,
-            'default_view'  => $command->default_view,
-            'threshold'     => $command->threshold,
-            'order'         => $command->order,
-            'visible'       => $command->visible,
+            'places' => $command->places,
+            'default_view' => $command->default_view,
+            'threshold' => $command->threshold,
+            'order' => $command->order,
+            'visible' => $command->visible,
         ]);
 
         event(new MetricWasCreatedEvent($this->auth->user(), $metric));

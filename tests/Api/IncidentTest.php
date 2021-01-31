@@ -61,10 +61,10 @@ class IncidentTest extends AbstractApiTestCase
     public function test_can_get_all_incidents_with_search()
     {
         factory(Incident::class, 3)->create([
-            'status' => 0
+            'status' => 0,
         ]);
         $incidents = factory(Incident::class, 2)->create([
-            'status' => 1
+            'status' => 1,
         ]);
 
         $response = $this->json('GET', '/api/v1/incidents?status=1');
@@ -79,10 +79,10 @@ class IncidentTest extends AbstractApiTestCase
     public function test_can_get_paginated_all_incidents_with_search()
     {
         factory(Incident::class, 3)->create([
-            'status' => 0
+            'status' => 0,
         ]);
         $incidents = factory(Incident::class, 2)->create([
-            'status' => 1
+            'status' => 1,
         ]);
 
         $response = $this->json('GET', '/api/v1/incidents?status=1&page=1&per_page=1');
@@ -127,10 +127,10 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/incidents', [
-            'name'     => 'Foo',
-            'message'  => 'Lorem ipsum dolor sit amet',
-            'status'   => 1,
-            'visible'  => 1,
+            'name' => 'Foo',
+            'message' => 'Lorem ipsum dolor sit amet',
+            'status' => 1,
+            'visible' => 1,
             'stickied' => false,
         ]);
 
@@ -147,13 +147,13 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/incidents', [
-            'name'             => 'Foo',
-            'message'          => 'Lorem ipsum dolor sit amet',
-            'status'           => 1,
-            'component_id'     => $component->id,
+            'name' => 'Foo',
+            'message' => 'Lorem ipsum dolor sit amet',
+            'status' => 1,
+            'component_id' => $component->id,
             'component_status' => 1,
-            'visible'          => 1,
-            'stickied'         => false,
+            'visible' => 1,
+            'stickied' => false,
         ]);
 
         $response->assertStatus(200);
@@ -168,20 +168,20 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/incidents', [
-            'name'     => 'Foo',
-            'status'   => 1,
-            'visible'  => 1,
+            'name' => 'Foo',
+            'status' => 1,
+            'visible' => 1,
             'stickied' => false,
             'template' => $template->slug,
-            'vars'     => [
-                'name'    => 'Foo',
+            'vars' => [
+                'name' => 'Foo',
                 'message' => 'Hello there this is a foo!',
             ],
         ]);
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
-            'name'    => 'Foo',
+            'name' => 'Foo',
             'message' => "Name: Foo,\nMessage: Hello there this is a foo!",
         ]);
     }
@@ -222,13 +222,13 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasUpdatedEvent::class);
 
         $response = $this->json('PUT', '/api/v1/incidents/1', [
-            'name'     => 'Foo',
+            'name' => 'Foo',
             'template' => $template->slug,
         ]);
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
-            'name'    => 'Foo',
+            'name' => 'Foo',
             'message' => 'Hello there this is a foo in my Foo!',
         ]);
     }
@@ -240,12 +240,12 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasUpdatedEvent::class);
 
         $response = $this->json('PUT', '/api/v1/incidents/1', [
-            'name'     => 'Updated incident name',
+            'name' => 'Updated incident name',
         ]);
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
-            'name'    => 'Updated incident name',
+            'name' => 'Updated incident name',
             'user_id' => null,
         ]);
     }
@@ -269,10 +269,10 @@ class IncidentTest extends AbstractApiTestCase
         $this->expectsEvents(IncidentWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/incidents', [
-            'name'    => 'Foo',
+            'name' => 'Foo',
             'message' => 'Lorem ipsum dolor sit amet',
-            'status'  => 1,
-            'meta'    => [
+            'status' => 1,
+            'meta' => [
                 'id' => 123456789,
             ],
         ]);

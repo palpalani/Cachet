@@ -48,7 +48,7 @@ final class CreateMetricPointCommand
      * @var string[]
      */
     public $rules = [
-        'value'      => 'required|numeric',
+        'value' => 'required|numeric',
         'created_at' => 'nullable|int',
     ];
 

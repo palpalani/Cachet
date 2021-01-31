@@ -51,11 +51,11 @@ class UserController extends Controller
         $enable2FA = (bool) Arr::pull($userData, 'google2fa');
 
         // Let's enable/disable auth
-        if ($enable2FA && !Auth::user()->hasTwoFactor) {
+        if ($enable2FA && ! Auth::user()->hasTwoFactor) {
             event(new UserEnabledTwoAuthEvent(Auth::user()));
             $google2fa = new Google2FA();
             $userData['google_2fa_secret'] = $google2fa->generateSecretKey();
-        } elseif (!$enable2FA) {
+        } elseif (! $enable2FA) {
             event(new UserDisabledTwoAuthEvent(Auth::user()));
             $userData['google_2fa_secret'] = '';
         }

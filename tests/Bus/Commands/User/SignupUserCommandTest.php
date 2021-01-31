@@ -30,8 +30,8 @@ class SignupUserCommandTest extends AbstractTestCase
         $params = [
             'username' => 'Test',
             'password' => 'fooey',
-            'email'    => 'test@example.com',
-            'level'    => 1,
+            'email' => 'test@example.com',
+            'level' => 1,
         ];
 
         $object = new SignupUserCommand(

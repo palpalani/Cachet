@@ -38,30 +38,30 @@ class ComponentGroupTest extends AbstractApiTestCase
         $response->assertStatus(200);
         $response->assertJsonFragment([
             [
-                'id'                        => $groups[0]->id,
-                'name'                      => $groups[0]->name,
-                'created_at'                => (string) $groups[0]->created_at,
-                'updated_at'                => (string) $groups[0]->updated_at,
-                'order'                     => $groups[0]->order,
-                'collapsed'                 => $groups[0]->collapsed,
-                'visible'                   => $groups[0]->visible,
-                'enabled_components'        => $groups[0]->enabled_components,
+                'id' => $groups[0]->id,
+                'name' => $groups[0]->name,
+                'created_at' => (string) $groups[0]->created_at,
+                'updated_at' => (string) $groups[0]->updated_at,
+                'order' => $groups[0]->order,
+                'collapsed' => $groups[0]->collapsed,
+                'visible' => $groups[0]->visible,
+                'enabled_components' => $groups[0]->enabled_components,
                 'enabled_components_lowest' => $groups[0]->enabled_components_lowest,
-                'lowest_human_status'       => $groups[0]->lowest_human_status,
+                'lowest_human_status' => $groups[0]->lowest_human_status,
             ],
         ]);
         $response->assertJsonFragment([
             [
-                'id'                        => $groups[1]->id,
-                'name'                      => $groups[1]->name,
-                'created_at'                => (string) $groups[1]->created_at,
-                'updated_at'                => (string) $groups[1]->updated_at,
-                'order'                     => $groups[1]->order,
-                'collapsed'                 => $groups[1]->collapsed,
-                'visible'                   => $groups[1]->visible,
-                'enabled_components'        => $groups[1]->enabled_components,
+                'id' => $groups[1]->id,
+                'name' => $groups[1]->name,
+                'created_at' => (string) $groups[1]->created_at,
+                'updated_at' => (string) $groups[1]->updated_at,
+                'order' => $groups[1]->order,
+                'collapsed' => $groups[1]->collapsed,
+                'visible' => $groups[1]->visible,
+                'enabled_components' => $groups[1]->enabled_components,
                 'enabled_components_lowest' => $groups[1]->enabled_components_lowest,
-                'lowest_human_status'       => $groups[1]->lowest_human_status,
+                'lowest_human_status' => $groups[1]->lowest_human_status,
             ],
         ]);
     }
@@ -100,18 +100,18 @@ class ComponentGroupTest extends AbstractApiTestCase
         $this->expectsEvents(ComponentGroupWasCreatedEvent::class);
 
         $response = $this->json('POST', '/api/v1/components/groups', [
-            'name'      => 'Foo',
-            'order'     => 1,
+            'name' => 'Foo',
+            'order' => 1,
             'collapsed' => 1,
-            'visible'   => ComponentGroup::VISIBLE_GUEST,
+            'visible' => ComponentGroup::VISIBLE_GUEST,
         ]);
 
         $response->assertStatus(200);
         $response->assertJsonFragment([
-            'name'      => 'Foo',
-            'order'     => 1,
+            'name' => 'Foo',
+            'order' => 1,
             'collapsed' => 1,
-            'visible'   => ComponentGroup::VISIBLE_GUEST,
+            'visible' => ComponentGroup::VISIBLE_GUEST,
         ]);
     }
 

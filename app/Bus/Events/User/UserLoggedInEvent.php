@@ -58,7 +58,7 @@ final class UserLoggedInEvent implements ActionInterface, UserEventInterface
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

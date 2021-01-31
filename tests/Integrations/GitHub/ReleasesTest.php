@@ -2,18 +2,17 @@
 
 namespace CachetHQ\Tests\Cachet\Integrations\GitHub\Releases;
 
-use CachetHQ\Tests\Cachet\AbstractTestCase;
-use Illuminate\Support\Facades\Cache;
 use CachetHQ\Cachet\Integrations\GitHub\Releases;
-
+use CachetHQ\Tests\Cachet\AbstractTestCase;
 use GuzzleHttp\Client;
+
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Psr7\Response;
+use Illuminate\Support\Facades\Cache;
 
 class ReleasesTest extends AbstractTestCase
 {

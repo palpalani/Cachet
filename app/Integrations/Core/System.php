@@ -69,16 +69,16 @@ class System implements SystemContract
 
         // Default data
         $status = [
-            'system_status'  => 'info',
+            'system_status' => 'info',
             'system_message' => trans_choice('cachet.service.bad', $totalComponents),
-            'favicon'        => 'favicon-high-alert',
+            'favicon' => 'favicon-high-alert',
         ];
 
         if ($isMajorOutage) {
             $status = [
-                'system_status'  => 'danger',
+                'system_status' => 'danger',
                 'system_message' => trans_choice('cachet.service.major', $totalComponents),
-                'favicon'        => 'favicon-high-alert',
+                'favicon' => 'favicon-high-alert',
             ];
         } elseif (Component::enabled()->authenticated($includePrivate)->notStatus(1)->count() === 0) {
             // If all our components are ok, do we have any non-fixed incidents?
@@ -87,14 +87,14 @@ class System implements SystemContract
             });
             $incidentCount = $incidents->count();
             $unresolvedCount = $incidents->filter(function ($incident) {
-                return !$incident->is_resolved;
+                return ! $incident->is_resolved;
             })->count();
 
             if ($incidentCount === 0 || ($incidentCount >= 1 && $unresolvedCount === 0)) {
                 $status = [
-                    'system_status'  => 'success',
+                    'system_status' => 'success',
                     'system_message' => trans_choice('cachet.service.good', $totalComponents),
-                    'favicon'        => 'favicon',
+                    'favicon' => 'favicon',
                 ];
             }
         } elseif (Component::enabled()->authenticated($includePrivate)->whereIn('status', [2, 3])->count() > 0) {
@@ -116,7 +116,7 @@ class System implements SystemContract
             return true;
         }
 
-        return !$this->config->get('setting.suppress_notifications_in_maintenance');
+        return ! $this->config->get('setting.suppress_notifications_in_maintenance');
     }
 
     /**

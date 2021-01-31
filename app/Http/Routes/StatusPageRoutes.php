@@ -40,27 +40,27 @@ class StatusPageRoutes
             'middleware' => ['ready', 'localize'],
         ], function (Registrar $router) {
             $router->get('/', [
-                'as'   => 'get:status-page',
+                'as' => 'get:status-page',
                 'uses' => 'StatusPageController@showIndex',
             ]);
 
             $router->get('incidents/{incident}', [
-                'as'   => 'get:incident',
+                'as' => 'get:incident',
                 'uses' => 'StatusPageController@showIncident',
             ]);
 
             $router->get('schedules/{schedule}', [
-                'as'   => 'get:schedule',
+                'as' => 'get:schedule',
                 'uses' => 'StatusPageController@showSchedule',
             ]);
 
             $router->get('metrics/{metric}', [
-                'as'   => 'get:metric',
+                'as' => 'get:metric',
                 'uses' => 'StatusPageController@getMetrics',
             ]);
 
             $router->get('component/{component}/shield', [
-                'as'   => 'get:component_shield',
+                'as' => 'get:component_shield',
                 'uses' => 'StatusPageController@showComponentBadge',
             ]);
         });

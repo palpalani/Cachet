@@ -68,7 +68,7 @@ final class ScheduleWasUpdatedEvent implements ActionInterface, ScheduleEventInt
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }

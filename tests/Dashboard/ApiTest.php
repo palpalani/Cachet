@@ -11,10 +11,6 @@
 
 namespace CachetHQ\Tests\Cachet\Dashboard;
 
-use CachetHQ\Cachet\Bus\Events\Component\ComponentStatusWasChangedEvent;
-use CachetHQ\Cachet\Bus\Events\Component\ComponentWasCreatedEvent;
-use CachetHQ\Cachet\Bus\Events\Component\ComponentWasRemovedEvent;
-use CachetHQ\Cachet\Bus\Events\Component\ComponentWasUpdatedEvent;
 use CachetHQ\Cachet\Models\Component;
 use CachetHQ\Tests\Cachet\Api\AbstractApiTestCase;
 
@@ -27,18 +23,18 @@ class ApiTest extends AbstractApiTestCase
     {
         $this->beUser();
 
-        $components = array();
+        $components = [];
         $components[] = factory(Component::class)->create(['id' => 1]);
         $components[] = factory(Component::class)->create(['id' => 2]);
         $components[] = factory(Component::class)->create(['id' => 3]);
 
 
         $response = $this->json('POST', '/dashboard/api/components/order', [
-            'ids'        => [
+            'ids' => [
                 0 => "3",
                 1 => "1",
-                2 => "2"
-            ]
+                2 => "2",
+            ],
         ]);
 
         $this->assertEquals(2, Component::find(1)->order);
@@ -50,7 +46,7 @@ class ApiTest extends AbstractApiTestCase
     {
         $this->beUser();
 
-        $components = array();
+        $components = [];
         $components[] = factory(Component::class)->create(['id' => 1]);
         $components[] = factory(Component::class)->create(['id' => 2]);
         $components[0]->attachTags(['Internal']);
@@ -58,10 +54,10 @@ class ApiTest extends AbstractApiTestCase
 
 
         $response = $this->json('POST', '/dashboard/api/components/order', [
-            'ids'        => [
+            'ids' => [
                 0 => "2",
                 1 => "1",
-            ]
+            ],
         ]);
 
         $this->assertEquals("Internal", Component::find(1)->tags[0]->name);

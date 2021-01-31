@@ -19,9 +19,9 @@ use CachetHQ\Cachet\Integrations\Core\Beacon;
 use CachetHQ\Cachet\Integrations\Core\Credits;
 use CachetHQ\Cachet\Integrations\Core\System;
 use CachetHQ\Cachet\Integrations\GitHub\Releases;
+use GuzzleHttp\Client;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use GuzzleHttp\Client;
 
 /**
  * This is the integration service provider.

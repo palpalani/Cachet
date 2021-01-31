@@ -34,9 +34,9 @@ class IncidentUpdate extends Model implements HasPresenter
      */
     protected $casts = [
         'incident_id' => 'int',
-        'status'      => 'int',
-        'message'     => 'string',
-        'user_id'     => 'int',
+        'status' => 'int',
+        'message' => 'string',
+        'user_id' => 'int',
     ];
 
     /**
@@ -58,9 +58,9 @@ class IncidentUpdate extends Model implements HasPresenter
      */
     public $rules = [
         'incident_id' => 'required|int',
-        'status'      => 'required|int',
-        'message'     => 'required|string',
-        'user_id'     => 'required|int',
+        'status' => 'required|int',
+        'message' => 'required|string',
+        'user_id' => 'required|int',
     ];
 
     /**

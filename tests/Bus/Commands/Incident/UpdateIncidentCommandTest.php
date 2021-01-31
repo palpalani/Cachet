@@ -30,18 +30,18 @@ class UpdateIncidentCommandTest extends AbstractTestCase
     protected function getObjectAndParams()
     {
         $params = [
-            'incident'         => new Incident(),
-            'name'             => 'Test',
-            'status'           => 1,
-            'message'          => 'Foo bar baz',
-            'visible'          => 1,
-            'component_id'     => 1,
+            'incident' => new Incident(),
+            'name' => 'Test',
+            'status' => 1,
+            'message' => 'Foo bar baz',
+            'visible' => 1,
+            'component_id' => 1,
             'component_status' => 1,
-            'notify'           => false,
-            'stickied'         => false,
-            'occurred_at'      => null,
-            'template'         => null,
-            'template_vars'    => [],
+            'notify' => false,
+            'stickied' => false,
+            'occurred_at' => null,
+            'template' => null,
+            'template_vars' => [],
         ];
 
         $object = new UpdateIncidentCommand(

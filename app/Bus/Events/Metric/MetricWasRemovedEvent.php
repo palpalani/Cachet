@@ -63,7 +63,7 @@ final class MetricWasRemovedEvent implements ActionInterface, MetricEventInterfa
     public function getAction()
     {
         return [
-            'user'        => $this->user,
+            'user' => $this->user,
             'description' => (string) $this,
         ];
     }
